@@ -67,10 +67,7 @@ artifacts/
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
-# StyleCop
-StyleCopReport.xml
-
-# Files built by Visual Studio
+# StyleCopStyleCopReport.xml# Files built by Visual Studio
 *_i.c
 *_p.c
 *_h.h
@@ -398,3 +395,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Model precompiled version
+*.cmo
