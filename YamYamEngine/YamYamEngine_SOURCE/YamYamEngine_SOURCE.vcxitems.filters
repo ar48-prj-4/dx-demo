@@ -171,6 +171,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaRigidbody.h">
       <Filter>Engine\Component\Rigidbody</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaObject.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">

@@ -34,6 +34,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMesh.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMeshRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)YamYamEngine.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)yaObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMaterial.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)yaResource.h" />

@@ -28,12 +28,16 @@ namespace ya
 		Vector2 GetPosition() { return mPosition; }
 		void  SetPosition(Vector2 position) { mPosition = position; }
 
+		//// Collider를 네모, 세모, 원 어떤걸로 할지 Type
+		//COLLIDERTYPE GetType() { return mType; }
+		//void SetType(COLLIDERTYPE type) { mType = type; }
 
 	private:
 
 		Vector2 mSize;
 		Vector2 mOffset;
 		Vector2 mPosition;
+		//COLLIDERTYPE mType;
 
 		bool mbIsCollision;						// 충돌하는게 눈에 보이게 하고 싶었을 때 변수
 	};

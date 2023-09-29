@@ -4,11 +4,8 @@
 
 extern ya::Application application;
 
-
-
 namespace ya::renderer
 {
-
 	D3D11_INPUT_ELEMENT_DESC InputLayouts[2];
 	Mesh* mesh = nullptr;
 	Shader* shader = nullptr;
@@ -49,6 +46,76 @@ namespace ya::renderer
 		constantBuffers[(UINT)graphics::eCBType::Transform] = new ConstantBuffer();
 		constantBuffers[(UINT)graphics::eCBType::Transform]->Create(sizeof(TransformCB));
 		//mesh->CreateConstantBuffer(nullptr, sizeof(Vector4));
+	}
+
+	void LoadRect()
+	{
+		std::vector<Vertex> vertexes;
+		std::vector<UINT> indices;
+
+		vertexes.resize(4);
+		vertexes[0].pos = Vector3(-0.5f, 0.5f, 0.0f);
+		vertexes[0].color = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+
+		vertexes[1].pos = Vector3(0.5f, 0.5f, 0.0f);
+		vertexes[1].color = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+
+		vertexes[2].pos = Vector3(0.5f, -0.5f, 0.0f);
+		vertexes[2].color = Vector4(0.0f, 0.0f, 1.f, 1.0f);
+
+		vertexes[3].pos = Vector3(-0.5f, -0.5f, 0.0f);
+		vertexes[3].color = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+
+		indices.push_back(0);
+		indices.push_back(2);
+		indices.push_back(3);
+
+		indices.push_back(0);
+		indices.push_back(1);
+		indices.push_back(2);
+
+		// Rect Vertex Buffer
+		mesh->CreateVertexBuffer(vertexes.data(), 4);
+		mesh->CreateIndexBuffer(indices.data(), indices.size());
+		Resources::Insert(L"RectangleMesh", mesh);
+
+		constantBuffers[(UINT)graphics::eCBType::Transform] = new ConstantBuffer();
+		constantBuffers[(UINT)graphics::eCBType::Transform]->Create(sizeof(TransformCB));
+	}
+
+	void LoadCircle()
+	{
+		std::vector<Vertex> vertices;
+		std::vector<UINT> indices;
+
+		Vertex center = {};
+		center.pos = Vector3(0.0f, 0.0f, 0.0f);
+		center.color = Vector4(1.0f, 1.0f, 1.0f, 1.0f);
+		vertices.push_back(center);
+
+		int degree = 360;
+		float radian = XM_2PI / (float)degree;
+		float radius = 0.5f;
+
+		for (int i = 0; i < degree; ++i)
+		{
+			center.pos = Vector3(radius * cosf(radian * (float)i), radius * sinf(radian * (float)i), 0.0f);
+			center.color = Vector4(0.0f, 1.0f, 0.0f, 1.f);
+			vertices.push_back(center);
+		}
+
+		for (int i = 0; i < vertices.size() - 2; ++i)
+			indices.push_back(i + 1);
+
+		indices.push_back(1);
+
+		// Circle Vertex Buffer
+		mesh->CreateVertexBuffer(vertices.data(), vertices.size());
+		mesh->CreateIndexBuffer(indices.data(), indices.size());
+		Resources::Insert(L"CircleMesh", mesh);
+
+		constantBuffers[(UINT)graphics::eCBType::Transform] = new ConstantBuffer();
+		constantBuffers[(UINT)graphics::eCBType::Transform]->Create(sizeof(TransformCB));
 	}
 
 	void LoadShader()
