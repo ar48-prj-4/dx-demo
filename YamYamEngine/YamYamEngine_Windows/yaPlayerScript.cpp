@@ -26,23 +26,22 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-
 		//Player ¿Ãµø
 		if (Input::GetKey(eKeyCode::W))
 		{
-			pos.y += 0.005f;
+			pos.y += 0.0005f;
 		}
 		if (Input::GetKey(eKeyCode::A))
 		{
-			pos.x -= 0.005f;
+			pos.x -= 0.0005f;
 		}
 		if (Input::GetKey(eKeyCode::S))
 		{
-			pos.y -= 0.005f;
+			pos.y -= 0.0005f;
 		}
 		if (Input::GetKey(eKeyCode::D))
 		{
-			pos.x += 0.005f;
+			pos.x += 0.0005f;
 		}
 
 		//Mouse

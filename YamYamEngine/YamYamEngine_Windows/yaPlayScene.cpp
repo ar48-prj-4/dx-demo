@@ -28,7 +28,7 @@ namespace ya
 
 		Transform* tr = player->AddComponent<Transform>();
 		tr->SetPosition(Vector3(0.5f, 0.2f, 0.0f));
-		tr->SetScale(Vector3(2.0f, 2.0f, 1.0f));
+		tr->SetScale(Vector3(1.0f, 1.0f, 1.0f));
 
 		MeshRenderer* meshRenderer = player->AddComponent<MeshRenderer>();
 		meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
