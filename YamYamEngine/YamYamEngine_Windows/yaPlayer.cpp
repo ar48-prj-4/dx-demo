@@ -4,6 +4,7 @@
 #include "yaTime.h"
 #include "yaMeshRenderer.h"
 #include "yaResources.h"
+#include "yaCollider.h"
 
 namespace ya
 {
@@ -16,6 +17,9 @@ namespace ya
 	void Player::Initialize()
 	{
 		GameObject::Initialize();
+
+		Collider* col = AddComponent<Collider>();
+
 	}
 	void Player::Update()
 	{
@@ -28,5 +32,17 @@ namespace ya
 	void Player::Render()
 	{
 		GameObject::Render();
+	}
+	void Player::OnCollisionEnter(Collider* collider)
+	{
+		int a = 0;
+	}
+	void Player::OnCollisionStay(Collider* collider)
+	{
+		int a = 0;
+	}
+	void Player::OnCollisionExit(Collider* collider)
+	{
+		int a = 0;
 	}
 }

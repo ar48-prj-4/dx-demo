@@ -18,9 +18,11 @@ namespace ya
 		virtual void LateUpdate();
 		virtual void Render();
 
-		Layer* GetLayer(UINT index) { return& mLayers[index]; }
-		Layer& GetLayer(LAYER type) { return mLayers[(UINT)type]; }
+		//Layer* GetLayer(UINT index) { return& mLayers[index]; }
+		//Layer& GetLayer(LAYER type) { return mLayers[(UINT)type]; }
 		void AddGameObject(GameObject* gameObject, UINT layerIndex);
+		
+		Layer* GetLayer(LAYER layer) { return &mLayers[(UINT)layer]; }
 
 	private:
 		Layer mLayers[LAYER::MAX];
