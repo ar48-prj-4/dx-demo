@@ -67,9 +67,6 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other);
 		virtual void OnCollisionExit(class Collider* other);
 
-		eState GetActive() { return mState; }
-
-
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;

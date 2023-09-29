@@ -1,7 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
 #include "yaCollider.h"
-#include "YamYamEngine.h"
 
 
 namespace ya
@@ -25,27 +24,15 @@ namespace ya
 	public:
 		static void Initialize();
 		static void Update();
+		static void LateUpdate();
 		static void Render(HDC hdc);
 		static void Release();
 
 		static void Clear();
-		//static void CollisionLayerCheck(LAYER left, LAYER right, bool enable);		// left와 right의 충돌 할건지 말건지
-		//static void LayerCollision(class Scene* scene, LAYER left, LAYER right);		//	몇번과 몇번이 충돌된 레이어인지
-		//static void ColliderCollision(Collider* left, Collider* right);
-		//static bool Intersect(Collider* left, Collider* right);
-
-		static void CollisionLayerCheck(UINT left, UINT right, bool value);
-		static bool GetCollisionID(Collider* left, Collider* right);
-		static void SetCollisionID(Collider* left, Collider* right, bool enable);
-		static bool Intersect(Collider* left, Collider* right);
-		static void LayerCollision(class Scene* scene, LAYER leftLayer, LAYER rightLayer);
+		static void CollisionLayerCheck(LAYER left, LAYER right, bool enable);		// left와 right의 충돌 할건지 말건지
+		static void LayerCollision(class Scene* scene, LAYER left, LAYER right);		//	몇번과 몇번이 충돌된 레이어인지
 		static void ColliderCollision(Collider* left, Collider* right);
-
-		static bool RectToRect(Collider* left, Collider* right);
-
-		static void CollisionEnter(Collider* left, Collider* right);
-		static void CollisionStay(Collider* left, Collider* right);
-		static void CollisionExit(Collider* left, Collider* right);
+		static bool Intersect(Collider* left, Collider* right);
 
 	private:
 		static std::map<UINT64, bool> mCollisionMap;

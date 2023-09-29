@@ -30,14 +30,9 @@ namespace ya
 		Vector3 GetRotation() { return mRotation; }
 		Vector3 GetScale() { return mScale; }
 
-		Matrix& GetWorldMatrix() { return mWorld; }
-
-
 	private:
 		Vector3 mPosition;
 		Vector3 mRotation;
 		Vector3 mScale;
-
-		Matrix mWorld;
 	};
 }

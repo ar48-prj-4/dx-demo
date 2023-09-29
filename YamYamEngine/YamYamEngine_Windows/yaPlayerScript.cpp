@@ -61,7 +61,6 @@ namespace ya
 		}
 
 		tr->SetPosition(pos);
-
 	}
 
 	void PlayerScript::LateUpdate()

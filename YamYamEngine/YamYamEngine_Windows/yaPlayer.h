@@ -14,9 +14,6 @@ namespace ya
 		virtual void LateUpdate();
 		virtual void Render();
 
-		virtual void OnCollisionEnter(Collider* collider);
-		virtual void OnCollisionStay(Collider* collider);
-		virtual void OnCollisionExit(Collider* collider);
 	private:
 
 	};
