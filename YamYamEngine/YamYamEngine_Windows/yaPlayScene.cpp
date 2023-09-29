@@ -7,6 +7,7 @@
 #include "yaPlayerScript.h"
 #include "yaPlayer.h"
 #include "yaInput.h"
+#include "yaRigidbody.h"
 
 namespace ya
 {
