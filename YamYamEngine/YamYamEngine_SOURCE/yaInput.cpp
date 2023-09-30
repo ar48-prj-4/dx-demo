@@ -50,20 +50,20 @@ namespace ya
         HWND hwnd = application.GetHwnd();
         HWND Nowhwnd = GetFocus();
 
+        POINT MousePos = {};
+
+        // 현재 마우스 Pos 를 받아온다
+        GetCursorPos(&MousePos);
+
+        // 마우스 Pos 를 스크린 좌표에서 특정 클라이언트 좌표로 바꿔준다
+        ScreenToClient(hwnd, &MousePos);
+        mMousPosition.x = (float)MousePos.x;
+        mMousPosition.y = (float)MousePos.y;
+
         if (hwnd == Nowhwnd)
         {
             for (int i = 0; i < (int)eKeyCode::END; i++)
             {
-                POINT MousePos = {};
-
-                // 현재 마우스 Pos 를 받아온다
-                GetCursorPos(&MousePos);
-
-                // 마우스 Pos 를 스크린 좌표에서 특정 클라이언트 좌표로 바꿔준다
-                ScreenToClient(hwnd, &MousePos);
-                mMousPosition.x = (float)MousePos.x;
-                mMousPosition.y = (float)MousePos.y;
-
                 //이전에 누른 적이 없고 호출 시점에서 눌린 상태 (0x8000)
                 if (GetAsyncKeyState(ASCII[i]) & 0x8000)
                 {
