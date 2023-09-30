@@ -5,8 +5,9 @@
 #include "yaTransform.h"
 #include "yaMeshRenderer.h"
 #include "yaPlayerScript.h"
-#include "yaCollider.h"
-#include "yaCollisionManager.h"
+#include "yaPlayer.h"
+#include "yaInput.h"
+#include "yaRigidbody.h"
 
 namespace ya
 {
@@ -22,20 +23,20 @@ namespace ya
 
 	void PlayScene::Initialize()
 	{
-		GameObject* object1 = new GameObject();
-		Transform* tr = object1->AddComponent<Transform>();
+		Scene::Initialize();
+
+		Player* player = new Player();
+
+		Transform* tr = player->AddComponent<Transform>();
 		tr->SetPosition(Vector3(0.5f, 0.2f, 0.0f));
-		tr->SetScale(Vector3(0.5f, 0.5f, 1.0f));
+		tr->SetScale(Vector3(1.0f, 1.0f, 1.0f));
 
-		object1->AddComponent<Collider>();
-
-		MeshRenderer* meshRenderer = object1->AddComponent<MeshRenderer>();
+		MeshRenderer* meshRenderer = player->AddComponent<MeshRenderer>();
 		meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
 		meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));
 
-		AddGameObject(object1, LAYER::PLAYER);
-		object1->AddComponent<PlayerScript>();
-
+		AddGameObject(player, LAYER::NONE);
+		player->AddComponent<PlayerScript>();
 	}
 
 	void PlayScene::Update()

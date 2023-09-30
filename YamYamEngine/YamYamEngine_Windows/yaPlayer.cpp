@@ -1,12 +1,11 @@
 #include "yaPlayer.h"
-#include "yaResources.h"
-#include "yaMeshRenderer.h"
-#include "yaSceneManager.h"
+#include "yaInput.h"
+#include "yaTransform.h"
 #include "yaTime.h"
 #include "yaPlayer.h"
 #include "yaInput.h"
 #include "yaMeshRenderer.h"
-#include "yaObject.h"
+#include "yaResources.h"
 
 
 namespace ya
