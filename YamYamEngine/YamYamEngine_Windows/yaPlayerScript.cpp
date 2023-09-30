@@ -29,19 +29,19 @@ namespace ya
 		//Player ¿Ãµø
 		if (Input::GetKey(eKeyCode::W))
 		{
-			pos.y += 0.0005f;
+			pos.y += 1.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::A))
 		{
-			pos.x -= 0.0005f;
+			pos.x -= 1.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::S))
 		{
-			pos.y -= 0.0005f;
+			pos.y -= 1.0f * Time::DeltaTime();
 		}
 		if (Input::GetKey(eKeyCode::D))
 		{
-			pos.x += 0.0005f;
+			pos.x += 1.0f * Time::DeltaTime();
 		}
 
 		//Mouse
