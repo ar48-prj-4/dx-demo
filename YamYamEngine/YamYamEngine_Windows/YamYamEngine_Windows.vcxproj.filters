@@ -13,12 +13,6 @@
     <Filter Include="GameObjects\Player">
       <UniqueIdentifier>{12a09320-4d8b-4c24-b8a4-1c784127ca4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameObjects\Monster">
-      <UniqueIdentifier>{8ffd2774-94f8-4425-b3da-d27157b1f6f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameObjects\Attack">
-      <UniqueIdentifier>{18e17ed8-f244-483e-a3cc-9a31c022468d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="yaPlayScene.h">
@@ -26,14 +20,8 @@
     </ClInclude>
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaPlayerScript.h" />
-    <ClInclude Include="yaMonster.h">
-      <Filter>GameObjects\Monster</Filter>
-    </ClInclude>
     <ClInclude Include="yaPlayer.h">
       <Filter>GameObjects\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="yaBullet.h">
-      <Filter>GameObjects\Attack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -41,14 +29,8 @@
       <Filter>Scens</Filter>
     </ClCompile>
     <ClCompile Include="yaPlayerScript.cpp" />
-    <ClCompile Include="yaMonster.cpp">
-      <Filter>GameObjects\Monster</Filter>
-    </ClCompile>
     <ClCompile Include="yaPlayer.cpp">
       <Filter>GameObjects\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="yaBullet.cpp">
-      <Filter>GameObjects\Attack</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

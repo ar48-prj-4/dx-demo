@@ -24,7 +24,7 @@ namespace ya
 	public:
 		static void Initialize();
 		static void Update();
-		static void Render(HDC hdc);
+		static void Render();
 		static void Release();
 
 		static void Clear();

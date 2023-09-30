@@ -5,7 +5,6 @@
 #include "yaTime.h"
 #include "yaPlayer.h"
 #include "yaInput.h"
-#include "yaBullet.h"
 #include "yaMeshRenderer.h"
 #include "yaObject.h"
 
@@ -65,23 +64,7 @@ namespace ya
 
 		tr->SetScale(ScalePos);
 
-		if (Input::GetKeyDown(KEY_CODE::SPACE))
-		{
-			//Bullet* bullet = new Bullet;
-			Bullet* bullet = object::Instantiate<Bullet>(LAYER::ATTACK);
-			bullet->AddComponent<Collider>();
-			Transform* bullettr = bullet->GetComponent<Transform>();
-			Vector3 playerpos = this->GetComponent<Transform>()->GetPosition();
-			bullettr->SetPosition(Vector3(playerpos));
-			bullettr->SetScale(Vector3(0.5f, 0.5f, 0.5f));
-
-			MeshRenderer* meshRenderer = bullet->AddComponent<MeshRenderer>();
-			meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
-			meshRenderer->SetShader(Resources::Find<Shader>(L"TriangleShader"));
-
-			SceneManager::GetActiveScene()->AddGameObject(bullet, LAYER::ATTACK);
-		}
-
+		
 		GameObject::Update();
 
 	}

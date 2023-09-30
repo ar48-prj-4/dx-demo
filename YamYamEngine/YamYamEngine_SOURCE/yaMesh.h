@@ -12,9 +12,6 @@ namespace ya
 
 		virtual HRESULT Load(const std::wstring& path) override;
 
-		bool CreateMesh(std::vector<renderer::Vertex>& vertexes
-			, std::vector<UINT>& indices);
-
 		bool CreateVertexBuffer(void* data, UINT Count);
 		bool CreateIndexBuffer(void* data, UINT Count);
 		void BindBuffer();
