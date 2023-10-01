@@ -23,7 +23,7 @@ namespace ya
 	{
 	}
 
-	void c::LateUpdate()
+	void Transform::LateUpdate()
 	{
 	}
 
