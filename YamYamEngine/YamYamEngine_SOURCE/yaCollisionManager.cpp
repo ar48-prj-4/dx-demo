@@ -40,6 +40,10 @@ namespace ya
 		}
 	}
 
+	void CollisionManager::LateUpdate()
+	{
+	}
+
 	void CollisionManager::Render()
 	{
 	}
