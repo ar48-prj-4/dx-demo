@@ -15,6 +15,7 @@ namespace ya
 		virtual void Render();
 
 	private:
+		
 
 	};
 }
