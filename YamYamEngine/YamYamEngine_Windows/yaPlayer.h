@@ -1,6 +1,5 @@
 #pragma once
 #include "yaGameObject.h"
-#include "yaTransform.h"
 
 namespace ya
 {
@@ -17,6 +16,7 @@ namespace ya
 		virtual void Render();
 
 	private:
+		
 
 	};
 }
