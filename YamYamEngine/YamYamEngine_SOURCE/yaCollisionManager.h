@@ -37,6 +37,7 @@ namespace ya
 	private:
 		static std::map<UINT64, bool> mCollisionMap;
 		static std::bitset<LAYER_MAX> mLayerMasks[LAYER_MAX];
+
 	};
 }
 

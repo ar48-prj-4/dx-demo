@@ -165,9 +165,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)yaRigidbody.h">
       <Filter>Engine\Component\Rigidbody</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)yaObject.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)yaMeshRenderer.h">
       <Filter>Engine\Component\MeshRenderer</Filter>
     </ClInclude>
