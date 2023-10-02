@@ -1,4 +1,4 @@
-#include "IJ_PlayerAim_Temp.h"
+ï»¿#include "IJ_PlayerAim_Temp.h"
 #include "yaTransform.h"
 #include "yaCollider.h"
 
@@ -32,17 +32,17 @@ namespace IJ
 	{
 		ya::GameObject::Update();
 
-		// space¸¦ ´©¸£¸é °¡Àå °¡±î¿î »óÀÚ¸¦ Áý½À´Ï´Ù
-		// ÀÌ¹Ì »óÀÚ¸¦ µé°íÀÖ´Ù¸é ³õ½À´Ï´Ù
-		// °¡Àå °¡±î¿î °Å ±¸ÇÏ±â´Â ³ªÁß¿¡ ±¸Çö ¿¹Á¤
+		// spaceë¥¼ ëˆ„ë¥´ë©´ ê°€ìž¥ ê°€ê¹Œìš´ ìƒìžë¥¼ ì§‘ìŠµë‹ˆë‹¤
+		// ì´ë¯¸ ìƒìžë¥¼ ë“¤ê³ ìžˆë‹¤ë©´ ë†“ìŠµë‹ˆë‹¤
+		// ê°€ìž¥ ê°€ê¹Œìš´ ê±° êµ¬í•˜ê¸°ëŠ” ë‚˜ì¤‘ì— êµ¬í˜„ ì˜ˆì •
 		GO_Box* m_Most_Close_Box = nullptr;
 
 		if (ya::Input::GetKeyDown(ya::eKeyCode::SPACE))
 		{
-			// ¾Æ¹«°Íµµ µé°íÀÖÁö ¾ÊÀº »óÅÂ¶ó¸é
+			// ì•„ë¬´ê²ƒë„ ë“¤ê³ ìžˆì§€ ì•Šì€ ìƒíƒœë¼ë©´
 			if (m_Box_Grabbing == nullptr)
 			{
-				// ±ÙÃ³¿¡ »óÀÚ°¡ ¾ø´Ù¸é ÁýÁö ¾Ê½À´Ï´Ù
+				// ê·¼ì²˜ì— ìƒìžê°€ ì—†ë‹¤ë©´ ì§‘ì§€ ì•ŠìŠµë‹ˆë‹¤
 				if (m_Most_Close_Box != nullptr)
 				{
 					m_Box_Grabbing = m_Most_Close_Box;
@@ -50,7 +50,7 @@ namespace IJ
 					m_Box_Grabbing->SetGrabber(m_Owner_Player);
 				}
 			}
-			// ÀÌ¹Ì ¹Ú½º¸¦ µé°íÀÖÀ¸¸é
+			// ì´ë¯¸ ë°•ìŠ¤ë¥¼ ë“¤ê³ ìžˆìœ¼ë©´
 			else
 			{
 				m_Most_Close_Box->SetBoxState(GO_Box::eBoxState::Idle);

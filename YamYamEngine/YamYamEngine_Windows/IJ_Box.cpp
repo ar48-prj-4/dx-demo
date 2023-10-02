@@ -1,4 +1,4 @@
-#include "IJ_Box.h"
+﻿#include "IJ_Box.h"
 #include "IJ_BoxScript.h"
 #include "yaTransform.h"
 #include "yaRigidbody.h"

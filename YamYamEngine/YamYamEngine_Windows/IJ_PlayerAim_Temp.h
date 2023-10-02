@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "yaPlayer.h"
 #include "yaCollider.h"
 #include "IJ_Box.h"

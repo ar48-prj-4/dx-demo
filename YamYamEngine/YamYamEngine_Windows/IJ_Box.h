@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "yaGameObject.h"
 
 
@@ -7,7 +7,7 @@ namespace IJ
 	class GO_Box : public ya::GameObject
 	{
 	public:
-		// Áö±İ º¸´Ï ±×³É bool °ªÀ¸·Î Ã³¸®ÇÒ ¼ö ÀÖÀ» °Í °°´Ù
+		// ì§€ê¸ˆ ë³´ë‹ˆ ê·¸ëƒ¥ bool ê°’ìœ¼ë¡œ ì²˜ë¦¬í•  ìˆ˜ ìˆì„ ê²ƒ ê°™ë‹¤
 		enum eBoxState
 		{
 			Idle,

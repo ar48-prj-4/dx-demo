@@ -1,4 +1,4 @@
-#include "IJ_BoxScript.h"
+ï»¿#include "IJ_BoxScript.h"
 #include "IJ_Box.h"
 
 #include "yaGameObject.h"
@@ -59,7 +59,7 @@ namespace IJ
 
 	void BoxScript::Idle()
 	{
-		// º¸Åë »óÅÂÀÏ ¶§¿£ ±âº»ÀûÀ¸·Î ¾Æ¹«°Íµµ ¾ÈÇÏ±â
+		// ë³´í†µ ìƒíƒœì¼ ë•Œì—” ê¸°ë³¸ì ìœ¼ë¡œ ì•„ë¬´ê²ƒë„ ì•ˆí•˜ê¸°
 	}
 
 	void BoxScript::Grabbed()
@@ -67,11 +67,11 @@ namespace IJ
 		ya::GameObject* m_Owner = GetOwner();
 		GO_Box* m_Owner_Box = dynamic_cast<GO_Box*>(m_Owner);
 
-		// ¹«¾ğ°¡°¡ ³ª¸¦ Àâ¾Ò´Ù¸é
+		// ë¬´ì–¸ê°€ê°€ ë‚˜ë¥¼ ì¡ì•˜ë‹¤ë©´
 		ya::GameObject* m_Grabber = m_Owner_Box->GetGrabber();
 		ya::Player* m_Grabber_Player = dynamic_cast<ya::Player*>(m_Grabber);
 
-		// ¾Æ¹«µµ ³ª¸¦ ÀâÁö ¾Ê¾Ò´Âµ¥ ÀÌ »óÅÂ¿¡ µé¾î¿Ô´Ù¸é idle·Î µ¹¾Æ°¨
+		// ì•„ë¬´ë„ ë‚˜ë¥¼ ì¡ì§€ ì•Šì•˜ëŠ”ë° ì´ ìƒíƒœì— ë“¤ì–´ì™”ë‹¤ë©´ idleë¡œ ëŒì•„ê°
 		if (m_Grabber == nullptr)
 			m_Owner_Box->SetBoxState(GO_Box::eBoxState::Idle);
 
@@ -79,7 +79,7 @@ namespace IJ
 		{
 			ya::Rigidbody* rigidbody = m_Owner->GetComponent<ya::Rigidbody>();
 
-			// »óÀÚ¿Í ÇÃ·¹ÀÌ¾î¿ÍÀÇ °Å¸® ±¸ÇÏ±â
+			// ìƒìì™€ í”Œë ˆì´ì–´ì™€ì˜ ê±°ë¦¬ êµ¬í•˜ê¸°
 			ya::Transform* tr_Box = m_Owner->GetComponent<ya::Transform>();
 			ya::Vector3 pos_Box = tr_Box->GetPosition();
 			ya::Transform* tr_Player = m_Grabber->GetComponent<ya::Transform>();
@@ -88,23 +88,23 @@ namespace IJ
 			float m_Distance = sqrtf(powf(pos_Box.x - pos_Player.x, 2) +
 								powf(pos_Box.y - pos_Player.y, 2));
 
-			// ³ªÁß¿¡ ±¸Çö ¿¹Á¤
-			// ¹«¾ğ°¡¿¡ ³¢¾î¼­ ¿òÁ÷ÀÌÁö ¸øÇØ ³ª¸¦ ÀâÀº ÇÃ·¹ÀÌ¾î¿Í °Å¸®°¡ ¸Ö¾îÁö¸é idle·Î µ¹¾Æ°¨
+			// ë‚˜ì¤‘ì— êµ¬í˜„ ì˜ˆì •
+			// ë¬´ì–¸ê°€ì— ë¼ì–´ì„œ ì›€ì§ì´ì§€ ëª»í•´ ë‚˜ë¥¼ ì¡ì€ í”Œë ˆì´ì–´ì™€ ê±°ë¦¬ê°€ ë©€ì–´ì§€ë©´ idleë¡œ ëŒì•„ê°
 			//if (fabsf(m_Distance) > 0.5f)
 			//{
 			//	m_Owner_Box->SetGrabber(nullptr);
 			//}
 
-			// Æò»ó½Ã¿£ ÇÃ·¹ÀÌ¾î ¿·À¸·Î ÀÌµ¿ÇÏ°Ô ÇÏ·Á°í ÇßÁö¸¸
-			// ÀÓ½Ã·Î ÇÃ·¹ÀÌ¾î ¹Ù·Î À§·Î ÀÌµ¿ÇÏ°Ô Çß½À´Ï´Ù
+			// í‰ìƒì‹œì—” í”Œë ˆì´ì–´ ì˜†ìœ¼ë¡œ ì´ë™í•˜ê²Œ í•˜ë ¤ê³  í–ˆì§€ë§Œ
+			// ì„ì‹œë¡œ í”Œë ˆì´ì–´ ë°”ë¡œ ìœ„ë¡œ ì´ë™í•˜ê²Œ í–ˆìŠµë‹ˆë‹¤
 			ya::Vector3 pos_Target = { pos_Player.x, pos_Player.y + 0.1f, pos_Player.z };
 			ya::Vector3 m_Direction = pos_Target - pos_Box;
 			m_Direction.normalize();
 			ya::Vector2 m_Direction_2 = { m_Direction.x, m_Direction.y };
 			rigidbody->AddForce(m_Direction_2 * 1.0f * ya::Time::DeltaTime());
 
-			// ¶ÇÇÑ Áß·ÂÀ» »ó¼âÇÏ±â À§ÇØ Áß·ÂÀÇ Å©±â¸¸Å­ À§·Î ÈûÀ» ¹Ş½À´Ï´Ù
-			// ÀÏ´ÜÀº ±âº»°ªÀÎ 800.0f ¸¸Å­¸¸ ÈûÀ» Áİ´Ï´Ù
+			// ë˜í•œ ì¤‘ë ¥ì„ ìƒì‡„í•˜ê¸° ìœ„í•´ ì¤‘ë ¥ì˜ í¬ê¸°ë§Œí¼ ìœ„ë¡œ í˜ì„ ë°›ìŠµë‹ˆë‹¤
+			// ì¼ë‹¨ì€ ê¸°ë³¸ê°’ì¸ 800.0f ë§Œí¼ë§Œ í˜ì„ ì¤ë‹ˆë‹¤
 			rigidbody->AddForce({ 0.0f, -800.0f });
 		}
 	}
