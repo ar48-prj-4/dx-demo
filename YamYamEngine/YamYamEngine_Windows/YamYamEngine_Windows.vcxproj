@@ -151,6 +151,7 @@
     <ClInclude Include="yaPlayerScript.h" />
     <ClInclude Include="yaPlayScene.h" />
     <ClInclude Include="yaTurret.h" />
+    <ClInclude Include="yaBulletScript.h" />
     <ClInclude Include="yaTurretScript.h" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +163,7 @@
     <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />
     <ClCompile Include="yaTurret.cpp" />
+    <ClCompile Include="yaBulletScript.cpp" />
     <ClCompile Include="yaTurretScript.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

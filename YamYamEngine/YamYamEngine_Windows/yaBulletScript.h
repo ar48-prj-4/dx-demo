@@ -1,14 +1,13 @@
 #pragma once
 #include "..\\YamYamEngine_SOURCE\\yaScript.h"
-#include "yaTransform.h"
 
 namespace ya
 {
-	class TurretScript : public Script
+	class BulletScript : public Script
 	{
 	public:
-		TurretScript();
-		virtual ~TurretScript();
+		BulletScript();
+		virtual ~BulletScript();
 
 		void Initialize() override;
 		void Update() override;
@@ -16,6 +15,6 @@ namespace ya
 		void Render() override;
 
 	private:
-		static float mTime;
+
 	};
 }

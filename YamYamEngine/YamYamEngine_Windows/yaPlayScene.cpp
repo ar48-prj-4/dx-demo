@@ -9,10 +9,8 @@
 #include "yaInput.h"
 #include "yaRigidbody.h"
 #include "yaCollisionManager.h"
-
 #include "yaTurret.h"
 #include "yaTurretScript.h"
-#include "yaBullet.h"
 
 namespace ya
 {
@@ -69,9 +67,9 @@ namespace ya
 		MeshRenderer* turretmr = turret->AddComponent<MeshRenderer>();
 		turretmr->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
 		turretmr->SetShader(Resources::Find<Shader>(L"TriangleShader"));
-
-		AddGameObject(turret, LAYER::PLAYER);
 		turret->AddComponent<TurretScript>();
+
+		AddGameObject(turret, LAYER::TURRET);
 		turret->AddComponent<Collider>()->SetSize(Vector3(0.1f, 0.1f, 1.0f));
 	}
 

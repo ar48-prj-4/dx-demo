@@ -45,6 +45,9 @@
     <ClInclude Include="yaBullet.h">
       <Filter>Turret</Filter>
     </ClInclude>
+    <ClInclude Include="yaBulletScript.h">
+      <Filter>Scripts</Filter>
+    </ClInclude>
     <ClInclude Include="yaTurretScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
@@ -73,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="yaBullet.cpp">
       <Filter>Turret</Filter>
+    </ClCompile>
+    <ClCompile Include="yaBulletScript.cpp">
+      <Filter>Scripts</Filter>
     </ClCompile>
     <ClCompile Include="yaTurretScript.cpp">
       <Filter>Scripts</Filter>
