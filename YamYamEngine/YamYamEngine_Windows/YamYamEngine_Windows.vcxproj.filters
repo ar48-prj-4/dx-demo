@@ -51,6 +51,16 @@
     <ClInclude Include="yaTurretScript.h">
       <Filter>Scripts</Filter>
     </ClInclude>
+    <ClInclude Include="yaPortal.hpp" />
+    <ClInclude Include="IJ_Button.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="IJ_ButtonConnectedObject.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="IJ_ButtonConnectedDoor.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -82,6 +92,16 @@
     </ClCompile>
     <ClCompile Include="yaTurretScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaPortal.cpp" />
+    <ClCompile Include="IJ_Button.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="IJ_ButtonConnectedObject.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="IJ_ButtonConnectedDoor.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -42,15 +42,18 @@ namespace IJ
 		ya::GameObject::Render();
 	}
 
-	void GO_Box::OnCollisionEnter(Collider* other)
+	void GO_Box::OnCollisionEnter(ya::Collider* other)
 	{
+		ya::GameObject::OnCollisionEnter(other);
 	}
 
-	void GO_Box::OnCollisionStay(Collider* other)
+	void GO_Box::OnCollisionStay(ya::Collider* other)
 	{
+		ya::GameObject::OnCollisionStay(other);
 	}
 
-	void GO_Box::OnCollisionExit(Collider* other)
+	void GO_Box::OnCollisionExit(ya::Collider* other)
 	{
+		ya::GameObject::OnCollisionExit(other);
 	}
 }

@@ -23,9 +23,9 @@ namespace IJ
 		virtual void LateUpdate();
 		virtual void Render();
 
-		virtual void OnCollisionEnter(class Collider* other);
-		virtual void OnCollisionStay(class Collider* other);
-		virtual void OnCollisionExit(class Collider* other);
+		virtual void OnCollisionEnter(class ya::Collider* other);
+		virtual void OnCollisionStay(class ya::Collider* other);
+		virtual void OnCollisionExit(class ya::Collider* other);
 
 		eBoxState GetBoxState() { return e_Current_Box_State; }
 		void SetBoxState(eBoxState box_state) { e_Current_Box_State = box_state; }
