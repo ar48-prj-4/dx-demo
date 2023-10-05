@@ -3,11 +3,11 @@
 
 namespace ya
 {
-	class Player : public GameObject
+	class Turret : public GameObject
 	{
 	public:
-		Player();
-		virtual ~Player();
+		Turret();
+		virtual ~Turret();
 
 		virtual void Initialize();
 		virtual void Update();
@@ -18,11 +18,7 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other);
 		virtual void OnCollisionExit(class Collider* other);
 
-
-
 	private:
-		int HP;
-		
 
 	};
 }

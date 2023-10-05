@@ -1,5 +1,4 @@
 #include "yaCollider.h"
-#include "yaTransform.h"
 #include "yaGameObject.h"
 #include "yaScene.h"
 #include "yaSceneManager.h"
@@ -9,10 +8,12 @@ namespace ya
 {
 	Collider::Collider()
 		:Component(COMPONENTTYPE::COLLIDER)
-		, mSize(Vector2::Zero)
+		, mSize(Vector3::Zero)
 		, mOffset(Vector2::Zero)
 		, mbIsCollision(false)
 	{
+
+		
 	}
 
 	Collider::~Collider()
@@ -21,10 +22,12 @@ namespace ya
 
 	void Collider::Initialize()
 	{
+		UpdatePosition();
 	}
 
 	void Collider::Update()
 	{
+		UpdatePosition();
 	}
 
 	void Collider::LateUpdate()
@@ -33,12 +36,10 @@ namespace ya
 
 	void Collider::Render()
 	{
-		
 	}
 
 	void Collider::OnCollisionEnter(Collider* other)
 	{
-		mbIsCollision = true;
 		GetOwner()->OnCollisionEnter(other);
 	}
 	void Collider::OnCollisionStay(Collider* other)
@@ -47,12 +48,22 @@ namespace ya
 	}
 	void Collider::OnCollisionExit(Collider* other)		// 막 빠져나갔을 때(충돌 X)
 	{
-		mbIsCollision = false;
 		GetOwner()->OnCollisionExit(other);
 	}
 
 	void Collider::ColliderOff()
 	{
 
+	}
+
+	void Collider::UpdatePosition()
+	{
+		auto* tr = GetOwner()->GetComponent<Transform>();
+
+		if(tr != nullptr)
+		{
+			SetPosition(tr->GetPosition());
+			SetSize(tr->GetScale());
+		}
 	}
 }
