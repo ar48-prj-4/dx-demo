@@ -47,6 +47,8 @@ namespace ya
 			rb->SetFriction(0.25f);
 
 			AddGameObject(player, LAYER::PLAYER);
+
+			player->Initialize();
 		}
 
 		GameObject* wall_a = new GameObject();

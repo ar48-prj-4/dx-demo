@@ -37,12 +37,10 @@ namespace ya
 		void Hit();
 		void Dead();
 
-
 	private:
 		eState mState;
 		int HP;
 		Rigidbody* rb;
 		//float jumptime;
-
 	};
 }
