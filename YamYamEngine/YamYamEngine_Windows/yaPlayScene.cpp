@@ -43,7 +43,10 @@ namespace ya
 			tr->SetScale(Vector3(1.0f, 1.0f, 1.0f));
 
 			cld1->SetSize(Vector3(1.0f, 1.0f, 1.0f));
+
+			// ** 테스트용으로 플레이어의 중력을 없애놨음. 나중에 풀어야 함!! **
 			rb->SetGravity(Vector3::Zero);
+
 			rb->SetFriction(0.25f);
 
 			AddGameObject(player, LAYER::PLAYER);
