@@ -12,13 +12,13 @@ namespace IJ
 			Hold,
 			Toggle,
 			Once,
-			END,
+			END_BT,
 		};
 		enum eButtonState // <- 굳이 필요한가?
 		{
 			Idle,
 			Pressing,
-			END,
+			END_BS,
 		};
 
 		GO_Button();

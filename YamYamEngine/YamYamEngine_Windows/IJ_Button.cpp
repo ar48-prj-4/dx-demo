@@ -55,7 +55,7 @@ namespace IJ
 			// 토글 타입이라면 닿을 때마다 활성화와 비활성화를 변경
 			else if (m_Button_Type == eButtonType::Toggle)
 			{
-				ButtonConnectedObject::eBCOState bcostate;
+				ButtonConnectedObject::eBCOState bcostate = bco->GetBCOState();
 				if (bcostate == ButtonConnectedObject::eBCOState::Activated)
 					bco->SetBCOState(ButtonConnectedObject::eBCOState::Disabled);
 				else if (bcostate == ButtonConnectedObject::eBCOState::Disabled)
