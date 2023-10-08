@@ -120,8 +120,8 @@ namespace ya
 			Turret* turret = new Turret();
 
 			Transform* turrettr = turret->AddComponent<Transform>();
-			turrettr->SetPosition(Vector3(2.5f, 0.2f, 1.0f));
-			turrettr->SetScale(Vector3(0.5f, 0.5f, 0.5f));
+			turrettr->SetPosition(Vector3(2.5f, 3.f, 1.0f));
+			turrettr->SetScale(Vector3(0.5f, 0.5f, 1.0f));
 
 			MeshRenderer* turretmr = turret->AddComponent<MeshRenderer>();
 			turretmr->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));

@@ -7,7 +7,6 @@
 #include "yaResources.h"
 #include "yaRigidbody.h"
 #include "yaCollider.h"
-#include "yaRigidbody.h"
 
 namespace ya
 {

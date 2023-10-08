@@ -36,7 +36,7 @@ namespace ya
 
 			Transform* bullettr = bullet->AddComponent<Transform>();
 			bullettr->SetPosition(tr->GetPosition());
-			bullettr->SetScale(tr->GetScale());
+			bullettr->SetScale(Vector3(0.5f, 0.5f, 1.0f));
 			bullet->AddComponent<BulletScript>();
 
 			MeshRenderer* bulletmr = bullet->AddComponent<MeshRenderer>();
