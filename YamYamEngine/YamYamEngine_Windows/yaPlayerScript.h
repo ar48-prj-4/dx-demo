@@ -14,6 +14,14 @@ namespace ya
 		void Update() override;
 		void LateUpdate() override;
 		void Render() override;
+
+		Vector3 GetPosition()
+		{
+			return mPosition;
+		}
+
+	private:
+		Vector3 mPosition;
 	};
 
 }

@@ -15,6 +15,6 @@ namespace ya
 		void Render() override;
 
 	private:
-
+		Vector3 mTurretPos;
 	};
 }

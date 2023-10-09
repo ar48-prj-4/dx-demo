@@ -3,10 +3,12 @@
 #include "yaTransform.h"
 #include "yaTime.h"
 #include "yaBullet.h"
+#include "yaPlayerScript.h"
 
 namespace ya
 {
 	BulletScript::BulletScript()
+		: mTurretPos(Vector3::Zero)
 	{
 	}
 	BulletScript::~BulletScript()

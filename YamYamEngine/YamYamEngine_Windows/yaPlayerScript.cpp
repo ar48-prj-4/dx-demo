@@ -10,6 +10,7 @@ namespace ya
 {
 
 	PlayerScript::PlayerScript()
+		: mPlayerPos(Vector3::Zero)
 	{
 	}
 
@@ -64,6 +65,8 @@ namespace ya
 		{
 
 		}
+
+		mPlayerPos = tr->GetPosition();
 	}
 
 	void PlayerScript::LateUpdate()
