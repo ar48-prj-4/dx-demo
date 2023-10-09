@@ -12,14 +12,13 @@ namespace ya::enums
 		ATTACK,
 		//PORTAL,
 		PLAYER,
-		PORTAL,
 		TURRET,
 		ITEM,
 		MONSTER,
 		BOSS,
 		EFFECT,
 		UI,
-		MAX = 16,
+		MAX,
 	};
 
 	// Common blendmodes used across multiple systems
