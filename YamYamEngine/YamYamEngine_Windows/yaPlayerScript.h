@@ -17,11 +17,11 @@ namespace ya
 
 		Vector3 GetPosition()
 		{
-			return mPosition;
+			return mPlayerPos;
 		}
 
 	private:
-		Vector3 mPosition;
+		Vector3 mPlayerPos;
 	};
 
 }
