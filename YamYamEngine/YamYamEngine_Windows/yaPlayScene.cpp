@@ -27,6 +27,7 @@ namespace ya
 	{
 		Scene::Initialize();
 
+		//Player
 		{
 			Player* player = new Player();
 

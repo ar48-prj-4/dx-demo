@@ -10,9 +10,10 @@
 
 namespace ya
 {
-	float TurretScript::mTime = 0.0f;
+	Vector3 TurretScript::mTurretPos = Vector3::Zero;
 
 	TurretScript::TurretScript()
+		: mTime(0.0f)
 	{
 	}
 	TurretScript::~TurretScript()

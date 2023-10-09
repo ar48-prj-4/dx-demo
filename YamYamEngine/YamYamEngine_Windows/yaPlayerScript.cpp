@@ -8,9 +8,9 @@
 
 namespace ya
 {
+	Vector3 PlayerScript::mPlayerPos = Vector3::Zero;
 
 	PlayerScript::PlayerScript()
-		: mPlayerPos(Vector3::Zero)
 	{
 	}
 

@@ -21,7 +21,7 @@ namespace ya
 		}
 
 	private:
-		Vector3 mPlayerPos;
+		static Vector3 mPlayerPos;
 	};
 
 }
