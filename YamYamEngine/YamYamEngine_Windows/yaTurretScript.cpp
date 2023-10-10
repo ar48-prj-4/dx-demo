@@ -34,6 +34,7 @@ namespace ya
 		if (mTime >= 0.5f)
 		{
 			Bullet* bullet = new Bullet();
+			bullet->Initialize();
 
 			Transform* bullettr = bullet->AddComponent<Transform>();
 			bullettr->SetPosition(tr->GetPosition());

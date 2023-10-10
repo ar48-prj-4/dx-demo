@@ -1,5 +1,6 @@
 #pragma once
 #include "yaGameObject.h"
+#include "yaPlayerScript.h"
 
 namespace ya
 {
@@ -18,7 +19,16 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other);
 		virtual void OnCollisionExit(class Collider* other);
 
-	private:
+		Vector3 GetTrajectory()
+		{
+			return mTrajectory;
+		}
 
+	private:
+		Vector3 mBulletPos;
+		Vector3 mPlayerPos;
+		Vector3 mTrajectory;
+
+		PlayerScript* playerSC;
 	};
 }
