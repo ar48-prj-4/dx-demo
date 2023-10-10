@@ -8,7 +8,7 @@ namespace ya
 	Bullet::Bullet()
 		: mBulletPos(Vector3::Zero)
 		, mPlayerPos(Vector3::Zero)
-		, mTrajectory(Vector3::Zero)
+		, mOrbit(Vector3::Zero)
 		, playerSC{ nullptr }
 	{
 	}
@@ -22,8 +22,8 @@ namespace ya
 		mPlayerPos = playerSC->GetPosition();
 		mBulletPos = AddComponent<Transform>()->GetPosition();
 
-		mTrajectory = { (mPlayerPos.x - mBulletPos.x), (mPlayerPos.y - mBulletPos.y), 1.0f };
-		mTrajectory.normalize();
+		mOrbit = { (mPlayerPos.x - mBulletPos.x), (mPlayerPos.y - mBulletPos.y), 1.0f };
+		mOrbit.normalize();
 	}
 	void Bullet::Update()
 	{

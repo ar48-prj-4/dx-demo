@@ -19,15 +19,15 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other);
 		virtual void OnCollisionExit(class Collider* other);
 
-		Vector3 GetTrajectory()
+		Vector3 GetOrbit()
 		{
-			return mTrajectory;
+			return mOrbit;
 		}
 
 	private:
 		Vector3 mBulletPos;
 		Vector3 mPlayerPos;
-		Vector3 mTrajectory;
+		Vector3 mOrbit;
 
 		PlayerScript* playerSC;
 	};
