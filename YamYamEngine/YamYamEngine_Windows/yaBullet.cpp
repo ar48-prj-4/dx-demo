@@ -23,7 +23,6 @@ namespace ya
 		mBulletPos = AddComponent<Transform>()->GetPosition();
 
 		mTrajectory = { (mPlayerPos.x - mBulletPos.x), (mPlayerPos.y - mBulletPos.y), 1.0f };
-
 		mTrajectory.normalize();
 	}
 	void Bullet::Update()
