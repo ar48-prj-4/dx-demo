@@ -1,11 +1,11 @@
 #pragma once
 #include "IJ_ButtonConnectedObject.h"
-#include "yaLighting.h"
+#include "IJ_BCO_Lighting.h"
 
 
 namespace IJ
 {
-	class BCO_Light : public ButtonConnectedObject
+	class BCO_Light : public IJ::ButtonConnectedObject
 	{
 	public:
 		BCO_Light(float light_range);
@@ -22,12 +22,12 @@ namespace IJ
 
 		float GetLightRange() const { return m_light_range_; }
 
-		const std::vector<ya::Lighting*>& GetLightings() const { return m_lightings_; }
+		const std::vector<BCO_Lighting*>& GetLightings() const { return m_lightings_; }
 
 	private:
-		friend class Lighting;
+		friend class BCO_Lighting;
 
-		std::vector<ya::Lighting*> m_lightings_;
+		std::vector<BCO_Lighting*> m_lightings_;
 		float m_light_range_;
 	};
 }

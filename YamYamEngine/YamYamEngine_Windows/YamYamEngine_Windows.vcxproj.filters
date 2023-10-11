@@ -81,6 +81,7 @@
     <ClInclude Include="IJ_BCO_Light.h">
       <Filter>GameObjects\Button</Filter>
     </ClInclude>
+    <ClInclude Include="IJ_BCO_Lighting.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="yaPlayScene.cpp">
@@ -134,6 +135,7 @@
     <ClCompile Include="IJ_BCO_Light.cpp">
       <Filter>GameObjects\Button</Filter>
     </ClCompile>
+    <ClCompile Include="IJ_BCO_Lighting.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

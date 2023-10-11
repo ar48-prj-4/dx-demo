@@ -1,5 +1,5 @@
-#include "IJ_BCO_Light.h"
 #include "yaCollider.h"
+#include "IJ_BCO_Light.h"
 
 #include "yaMeshRenderer.h"
 #include "yaResources.h"
@@ -13,7 +13,7 @@ namespace IJ
 
 	void BCO_Light::Initialize()
 	{
-		GameObject::Initialize();
+		ButtonConnectedObject::Initialize();
 
 		const auto tr = AddComponent<ya::Transform>();
 		tr->SetScale(1.0f, 1.0f, 1.0f);
@@ -23,14 +23,14 @@ namespace IJ
 		mr->SetShader(ya::Resources::Find<ya::Shader>(L"ColorShader"));
 		mr->SetTexture(ya::Resources::Find<ya::Texture>(L"Texture"));
 
-		m_lightings_.push_back(new ya::Lighting(this));
+		m_lightings_.push_back(new BCO_Lighting(this));
 		m_lightings_[0]->Initialize();
 		SetName(L"Light");
 	}
 
 	void BCO_Light::Update()
 	{
-		ButtonConnectedObject::Update();
+		IJ::ButtonConnectedObject::Update();
 		if (GetBCOState() == eBCOState::Activated)
 		{
 			for (const auto& child : m_lightings_)
@@ -42,12 +42,12 @@ namespace IJ
 
 	void BCO_Light::LateUpdate()
 	{
-		ButtonConnectedObject::LateUpdate();
+		IJ::ButtonConnectedObject::LateUpdate();
 	}
 
 	void BCO_Light::Render()
 	{
-		ButtonConnectedObject::Render();
+		IJ::ButtonConnectedObject::Render();
 		if (GetBCOState() == eBCOState::Activated)
 		{
 			for (const auto& child : m_lightings_)

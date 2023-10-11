@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="IJ_BCO_Light.h" />
+    <ClInclude Include="IJ_BCO_Lighting.h" />
     <ClInclude Include="IJ_Box.h" />
     <ClInclude Include="IJ_Button.h" />
     <ClInclude Include="IJ_BCO_Door.h" />
@@ -164,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IJ_BCO_Light.cpp" />
+    <ClCompile Include="IJ_BCO_Lighting.cpp" />
     <ClCompile Include="IJ_Box.cpp" />
     <ClCompile Include="IJ_Button.cpp" />
     <ClCompile Include="IJ_BCO_Door.cpp" />

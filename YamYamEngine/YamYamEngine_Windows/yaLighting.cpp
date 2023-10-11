@@ -6,10 +6,7 @@
 
 namespace ya
 {
-	Lighting::Lighting(Light* origin) : m_origin_(origin), m_origin_BCO(nullptr)
-	{
-	}
-	Lighting::Lighting(BCO_Light* origin_bco) : m_origin_(nullptr), m_origin_BCO(origin_bco)
+	Lighting::Lighting(Light* origin) : m_origin_(origin)
 	{
 	}
 
