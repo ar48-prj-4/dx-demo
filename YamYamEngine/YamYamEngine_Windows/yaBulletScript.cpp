@@ -26,8 +26,8 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-		pos.x += bullet->GetTrajectory().x * 5.0f * Time::DeltaTime();
-		pos.y += bullet->GetTrajectory().y * 5.0f * Time::DeltaTime();
+		pos.x += bullet->GetOrbit().x * 5.0f * Time::DeltaTime();
+		pos.y += bullet->GetOrbit().y * 5.0f * Time::DeltaTime();
 		
 		tr->SetPosition(pos);
 	}
