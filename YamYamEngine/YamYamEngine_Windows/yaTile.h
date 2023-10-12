@@ -1,6 +1,5 @@
 #pragma once
 #include "yaGameObject.h"
-#include "yaMeshRenderer.h"
 #include "yaResources.h"
 
 namespace ya
@@ -30,9 +29,7 @@ namespace ya
 		virtual void Update() override;
 		virtual void Render() override;
 
-		void SetSourceTileIdx(int x, int y) { mSourceIndexX = x;  mSourceIndexY = y; }
 		void SetTileIdx(int x, int y) { mIndexX = x;  mIndexY = y; }
-		Vector3 GetSourceTileIdx() { return Vector3(mSourceIndexX, mSourceIndexY, 1); }
 		Vector3 GetTileIdx() { return Vector3(mIndexX, mIndexY, 1); }
 		void SetTile(int x, int y);
 
@@ -54,9 +51,7 @@ namespace ya
 
 	private:
 		class MeshRenderer* mMeshRenderer;
-		UINT mSourceIndexX;
-		UINT mSourceIndexY;
-
+		class Transform* mTransform;
 		UINT mIndexX;
 		UINT mIndexY;
 

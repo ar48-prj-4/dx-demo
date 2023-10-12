@@ -28,9 +28,9 @@ namespace ya
 	{
 		Scene::Initialize();
 
-		Camera::SetZoom(500.f);
+		Camera::SetZoom(0.f);
 	}
-
+	
 	void ToolScene::Update()
 	{
 		Scene::Update();
@@ -52,7 +52,7 @@ namespace ya
 				), (idxY * (TILE_HEIGHT)+offset.y), 1));
 
 			tile->SetCircle(tile);
-
+			tile->SetType(Tile::eTileType::Circle);
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
 			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
 			tile->SetTileIdx(idxX, idxY);
@@ -196,11 +196,7 @@ namespace ya
 
 		for (Tile* tile : mTiles)
 		{
-			Vector3 sourIdx = tile->GetSourceTileIdx();
 			Vector3 idx = tile->GetTileIdx();
-
-			int sourceX = sourIdx.x;
-			int sourceY = sourIdx.y;
 
 			int	myX = idx.x;
 			int myY = idx.y;
@@ -208,8 +204,6 @@ namespace ya
 			// 열어놓은 파일에 원하는 크기만큼 파일에 기록
 			// sourceX, sourceY - 우측의 타일의 소스 인덱스
 			// myX, myY - 좌측의 타일 인덱스
-			fwrite(&sourceX, sizeof(int), 1, pFile);
-			fwrite(&sourceY, sizeof(int), 1, pFile);
 			fwrite(&myX, sizeof(int), 1, pFile);
 			fwrite(&myY, sizeof(int), 1, pFile);
 		}
@@ -249,16 +243,9 @@ namespace ya
 
 		while (true)
 		{
-			int sourceX = -1;
-			int sourceY = -1;
-
 			int	myX = -1;
 			int myY = -1;
 
-			if (fread(&sourceX, sizeof(int), 1, pFile) == NULL)
-				break;
-			if (fread(&sourceY, sizeof(int), 1, pFile) == NULL)
-				break;
 			if (fread(&myX, sizeof(int), 1, pFile) == NULL)
 				break;
 			if (fread(&myY, sizeof(int), 1, pFile) == NULL)
@@ -270,10 +257,23 @@ namespace ya
 			tile->GetComponent<Transform>()->SetPosition(myX * (TILE_WIDTH)+offset.x + LEFT_TOP_X
 				, myY * (TILE_HEIGHT)+offset.y + LEFT_TOP_Y, 1);
 
-			tile->SetTile(sourceX, sourceY);
-			tile->SetSourceTileIdx(sourceX, sourceY);
 			tile->SetTileIdx(myX, myY);
-
+			if (tile->GetType() == Tile::eTileType::Circle)
+			{
+				tile->SetCircle(tile);
+			}
+			else if (tile->GetType() == Tile::eTileType::Triangle)
+			{
+				tile->SetTriangle(tile);
+			}
+			else if (tile->GetType() == Tile::eTileType::Square)
+			{
+				tile->SetSquare(tile);
+			}
+			else if (tile->GetType() == Tile::eTileType::Floor)
+			{
+				tile->SetFloor(tile);
+			}
 			AddGameObject(tile, LAYER::TILE);
 
 			mTiles.push_back(tile);

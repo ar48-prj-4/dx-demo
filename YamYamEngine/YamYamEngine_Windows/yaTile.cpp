@@ -16,14 +16,13 @@ namespace ya
 
 	Tile::Tile()
 		: mMeshRenderer(nullptr)
-		, mSourceIndexX(0)
-		, mSourceIndexY(0)
+		, mTransform(nullptr)
 		, mIndexX(0)
 		, mIndexY(0)
 		, mType(eTileType::Square)
 
 	{
-		AddComponent<Transform>();
+		mTransform = AddComponent<Transform>();
 		AddComponent<Collider>();
 
 		mMeshRenderer = AddComponent<MeshRenderer>();
