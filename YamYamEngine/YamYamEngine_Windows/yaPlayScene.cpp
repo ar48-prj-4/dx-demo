@@ -55,8 +55,6 @@ namespace ya
 			rb->SetFriction(0.25f);
 
 			AddGameObject(player, LAYER::PLAYER);
-
-			player->Initialize();
 		}
 
 		GameObject* wall_a = new GameObject();
@@ -155,7 +153,7 @@ namespace ya
 			IJ::GO_Button* button = new IJ::GO_Button();
 			button->Initialize();
 			button->SetButtonType(IJ::GO_Button::eButtonType::Toggle);
-			button->GetComponent<Transform>()->SetPosition(Vector3(-3.0f, -3.0f, 1.0f));
+			button->GetComponent<Transform>()->SetPosition(Vector3(0.0f, -3.0f, 1.0f));
 
 			Light* bco_light = new Light(3.0f);
 			bco_light->Initialize();

@@ -131,7 +131,7 @@ namespace ya
 				}
 				else
 				{
-					tr->SetRotation(0, 0, 0);
+					tr->SetRotation(0.0f, 0.0f, 0.0f);
 					tr->SetPosition(player_pos.x, player_pos.y, player_pos.z);
 				}
 			}

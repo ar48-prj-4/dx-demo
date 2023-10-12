@@ -28,7 +28,7 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Rigidbody* rb = obj->GetComponent<Rigidbody>();
 
-		//Player �̵�
+		//Player Move
 		if (Input::GetKey(eKeyCode::W))
 		{
 			const auto velocity = rb->GetVelocity();
@@ -62,10 +62,10 @@ namespace ya
 
 		}
 
-		//��ȣ�ۿ�
+		//Interaction
 		if (Input::GetKeyDown(eKeyCode::SPACE))
 		{
-
+			
 		}
 
 		mPlayerPos = tr->GetPosition();

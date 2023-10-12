@@ -9,6 +9,7 @@
 #include "yaCollider.h"
 #include "yaRigidbody.h"
 #include "yaSceneManager.h"
+#include "yaCollisionManager.h"
 
 namespace ya
 {
@@ -16,6 +17,7 @@ namespace ya
 		: HP(100),
 		//jumptime(0.f),
 		rb{ nullptr },
+		m_shadow_{ nullptr },
 		mState(eState::Idle)
 	{
 	}
@@ -33,6 +35,7 @@ namespace ya
 		AddComponent<Collider>();
 		m_shadow_ = new PlayerShadow(this);
 		m_shadow_->Initialize();
+		m_shadow_->SetLayer(LAYER::PLAYER);
 
 		rb = GetComponent<Rigidbody>();
 		rb->SetGround(true);
@@ -92,7 +95,7 @@ namespace ya
 	{
 		const auto layer = other->GetOwner()->GetLayer();
 
-		if (layer == LAYER::ATTACK || layer == LAYER::MONSTER)
+		if (layer == LAYER::ATTACK || layer == LAYER::MONSTER || layer == LAYER::BOSS)
 		{
 			mState = eState::Hit;
 		}
@@ -126,6 +129,12 @@ namespace ya
 		{
 			m_shadow_->PlayerCollisionLightEnter(light);
 		}
+		
+		//Interaction
+		//if (Input::GetKeyDown(eKeyCode::F))
+		//{
+		//	
+		//}
 	}
 
 	void Player::OnCollisionExit(Collider* other)
