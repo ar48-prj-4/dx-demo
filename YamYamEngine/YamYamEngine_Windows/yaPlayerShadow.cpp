@@ -155,7 +155,7 @@ namespace ya
 
 		if (Input::GetKeyDown(eKeyCode::F))
 		{
-			int a = 0;
+			//Change Button State
 		}
 	}
 
