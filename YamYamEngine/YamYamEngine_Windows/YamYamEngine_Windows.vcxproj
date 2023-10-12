@@ -145,7 +145,7 @@
   <ItemGroup>
     <ClInclude Include="IJ_Box.h" />
     <ClInclude Include="IJ_Button.h" />
-    <ClInclude Include="IJ_ButtonConnectedDoor.h" />
+    <ClInclude Include="IJ_BCO_Door.h" />
     <ClInclude Include="IJ_ButtonConnectedObject.h" />
     <ClInclude Include="IJ_PlayerAim_Temp.h" />
     <ClInclude Include="yaBullet.h" />
@@ -157,6 +157,8 @@
     <ClInclude Include="yaPlayerShadow.h" />
     <ClInclude Include="yaPlayScene.h" />
     <ClInclude Include="yaPortal.hpp" />
+    <ClInclude Include="yaTile.h" />
+    <ClInclude Include="yaToolScene.h" />
     <ClInclude Include="yaTurret.h" />
     <ClInclude Include="yaBulletScript.h" />
     <ClInclude Include="yaTurretScript.h" />
@@ -164,7 +166,7 @@
   <ItemGroup>
     <ClCompile Include="IJ_Box.cpp" />
     <ClCompile Include="IJ_Button.cpp" />
-    <ClCompile Include="IJ_ButtonConnectedDoor.cpp" />
+    <ClCompile Include="IJ_BCO_Door.cpp" />
     <ClCompile Include="IJ_ButtonConnectedObject.cpp" />
     <ClCompile Include="IJ_PlayerAim_Temp.cpp" />
     <ClCompile Include="yaBullet.cpp" />
@@ -175,6 +177,8 @@
     <ClCompile Include="yaPlayerShadow.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />
     <ClCompile Include="yaPortal.cpp" />
+    <ClCompile Include="yaTile.cpp" />
+    <ClCompile Include="yaToolScene.cpp" />
     <ClCompile Include="yaTurret.cpp" />
     <ClCompile Include="yaBulletScript.cpp" />
     <ClCompile Include="yaTurretScript.cpp" />
