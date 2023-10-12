@@ -1,16 +1,11 @@
 #include "yaScene.h"
 
-#include "yaCollisionManager.h"
 
 
 namespace ya
 {
     Scene::Scene()
     {
-        for (int i = 0; i < LAYER_MAX; ++i)
-        {
-	        mLayers[i].SetLayerType(static_cast<LAYER>(i));
-        }
     }
 
     Scene::~Scene()
