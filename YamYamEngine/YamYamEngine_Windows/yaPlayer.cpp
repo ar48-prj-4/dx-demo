@@ -15,6 +15,7 @@ namespace ya
 	Player::Player()
 		: HP(100),
 		//jumptime(0.f),
+		rb{ nullptr },
 		mState(eState::Idle)
 	{
 	}
@@ -35,8 +36,6 @@ namespace ya
 
 		rb = GetComponent<Rigidbody>();
 		rb->SetGround(true);
-
-		Camera::SetTarget(this);
 	}
 
 	void Player::Update()
@@ -52,6 +51,10 @@ namespace ya
 
 		case ya::Player::eState::Idle:
 			Idle();
+			break;
+
+		case ya::Player::eState::Shoot:
+			Shoot();
 			break;
 
 		case ya::Player::eState::Jump:
@@ -145,22 +148,25 @@ namespace ya
 	void Player::Live()
 	{
 	}
+	void Player::Shoot()
+	{
+	}
 	void Player::Jump()
 	{
 		//jumptime += Time::DeltaTime();
 		Transform* tr = GetComponent<Transform>();
 		Vector3 pos = tr->GetPosition();
 
-		Vector3 velocity = rb->GetVelocity();
-		velocity.y = +100.0f;
-		rb->SetVelocity(velocity);
-		rb->SetGround(false);
+		//Vector3 velocity = rb->GetVelocity();
+		//velocity.y = +100.0f;
+		//rb->SetVelocity(velocity);
+		//rb->SetGround(false);
 
 		tr->SetPosition(pos);
 
 		if (Input::GetKeyUp(eKeyCode::W))
 		{
-			mState = eState::Fall;
+			//mState = eState::Fall;
 		}
 		
 	}

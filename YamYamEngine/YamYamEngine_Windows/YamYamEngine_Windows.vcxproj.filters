@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="IJ_Box.cpp" />
+    <ClCompile Include="IJ_Button.cpp" />
+    <ClCompile Include="IJ_ButtonConnectedDoor.cpp" />
+    <ClCompile Include="IJ_ButtonConnectedObject.cpp" />
+    <ClCompile Include="IJ_PlayerAim_Temp.cpp" />
+    <ClCompile Include="yaBullet.cpp" />
+    <ClCompile Include="yaPlayer.cpp" />
+    <ClCompile Include="yaPlayerScript.cpp" />
+    <ClCompile Include="yaPlayScene.cpp" />
+    <ClCompile Include="yaPortal.cpp" />
+    <ClCompile Include="yaTurret.cpp" />
+    <ClCompile Include="yaBulletScript.cpp" />
+    <ClCompile Include="yaTurretScript.cpp" />
+    <ClCompile Include="yaToolScene.cpp" />
+    <ClCompile Include="yaTile.cpp" />
     <Filter Include="Scens">
       <UniqueIdentifier>{80edf01e-7bf3-4629-8663-b2d23fb1d1bc}</UniqueIdentifier>
     </Filter>
@@ -27,6 +42,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+
     <ClInclude Include="yaPlayScene.h">
       <Filter>Scens</Filter>
     </ClInclude>
@@ -56,6 +72,16 @@
     </ClInclude>
     <ClInclude Include="yaTurretScript.h">
       <Filter>Scripts</Filter>
+    <ClInclude Include="yaToolScene.h" />
+    <ClInclude Include="yaTile.h" />
+    <ClInclude Include="IJ_Button.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="IJ_ButtonConnectedObject.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="IJ_ButtonConnectedDoor.h">
+      <Filter>GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="yaPlayerShadow.h">
       <Filter>Player</Filter>
@@ -110,6 +136,13 @@
     </ClCompile>
     <ClCompile Include="yaTurretScript.cpp">
       <Filter>Scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="yaToolScene.cpp">
+    <ClCompile Include="IJ_ButtonConnectedObject.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="IJ_ButtonConnectedDoor.cpp">
+      <Filter>GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="yaPlayerShadow.cpp">
       <Filter>Player</Filter>

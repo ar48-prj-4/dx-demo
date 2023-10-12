@@ -12,6 +12,7 @@ namespace ya
 		{
 			Idle,
 			Live,
+			Shoot,
 			Jump,
 			Fall,
 			Hit,
@@ -33,11 +34,11 @@ namespace ya
 
 		void Idle();
 		void Live();
+		void Shoot();
 		void Jump();
 		void Fall();
 		void Hit();
 		void Dead();
-
 
 	private:
 		eState mState;
