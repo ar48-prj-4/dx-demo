@@ -33,6 +33,7 @@ namespace ya
 		//Player
 		{
 			Player* player = new Player();
+			AddGameObject(player, LAYER::PLAYER);
 			player->Initialize();
 
 			MeshRenderer* meshRenderer = player->AddComponent<MeshRenderer>();
@@ -53,8 +54,6 @@ namespace ya
 			rb->SetGravity(Vector3::Zero);
 
 			rb->SetFriction(0.25f);
-
-			AddGameObject(player, LAYER::PLAYER);
 		}
 
 		GameObject* wall_a = new GameObject();

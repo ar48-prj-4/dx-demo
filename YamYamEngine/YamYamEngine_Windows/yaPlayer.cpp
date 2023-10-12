@@ -35,7 +35,9 @@ namespace ya
 		AddComponent<Collider>();
 		m_shadow_ = new PlayerShadow(this);
 		m_shadow_->Initialize();
-		m_shadow_->SetLayer(LAYER::PLAYER);
+		//m_shadow_->SetLayer(this->GetLayer());
+
+		SceneManager::GetActiveScene()->AddGameObject(m_shadow_, LAYER::PLAYER);
 
 		rb = GetComponent<Rigidbody>();
 		rb->SetGround(true);
@@ -44,7 +46,7 @@ namespace ya
 	void Player::Update()
 	{
 		GameObject::Update();
-		m_shadow_->Update();
+		//m_shadow_->Update();
 
 		switch (mState)
 		{
@@ -89,7 +91,7 @@ namespace ya
 	void Player::Render()
 	{
 		GameObject::Render();
-		m_shadow_->Render();
+		//m_shadow_->Render();
 	}
 	void Player::OnCollisionEnter(Collider* other)
 	{

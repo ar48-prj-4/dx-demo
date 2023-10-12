@@ -10,6 +10,7 @@
 #include "yaResources.h"
 #include "yaShadowMesh.hpp"
 #include "yaTime.h"
+#include "IJ_Button.h"
 
 namespace ya
 {
@@ -141,19 +142,24 @@ namespace ya
 		}
 	}
 
-	void PlayerShadow::OnCollisionEnter(Collider* other)
+	void PlayerShadow::OnCollisionEnter(class Collider* other)
 	{
 		GameObject::OnCollisionEnter(other);
 
 		
 	}
 
-	void PlayerShadow::OnCollisionStay(Collider* other)
+	void PlayerShadow::OnCollisionStay(class Collider* other)
 	{
 		GameObject::OnCollisionStay(other);
+
+		if (Input::GetKeyDown(eKeyCode::F))
+		{
+			int a = 0;
+		}
 	}
 
-	void PlayerShadow::OnCollisionExit(Collider* other)
+	void PlayerShadow::OnCollisionExit(class Collider* other)
 	{
 		GameObject::OnCollisionExit(other);
 	}

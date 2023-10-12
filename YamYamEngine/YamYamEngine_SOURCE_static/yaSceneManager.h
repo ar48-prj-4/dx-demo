@@ -21,6 +21,7 @@ namespace ya
 				return false;
 
 			T* scene = new T();
+			mActiveScene = scene;
 			mScenes.insert(std::make_pair(name, scene));
 			scene->Initialize();
 			
