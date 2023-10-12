@@ -2,6 +2,7 @@
 #include "yaTransform.h"
 #include "yaTime.h"
 #include "yaMeshRenderer.h"
+#include "yaPlayer.h"
 
 namespace ya
 {
@@ -39,6 +40,7 @@ namespace ya
 	}
 	void Bullet::OnCollisionEnter(Collider* other)
 	{
+
 	}
 	void Bullet::OnCollisionStay(Collider* other)
 	{

@@ -45,7 +45,7 @@ namespace ya
 			bulletmr->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
 			bulletmr->SetShader(Resources::Find<Shader>(L"ColorShader"));
 
-			SceneManager::GetActiveScene()->AddGameObject(bullet, LAYER::TURRET);
+			SceneManager::GetActiveScene()->AddGameObject(bullet, LAYER::ATTACK);
 
 			mTime = 0.0f;
 		}

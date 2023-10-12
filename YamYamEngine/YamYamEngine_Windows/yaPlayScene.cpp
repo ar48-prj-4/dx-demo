@@ -60,7 +60,7 @@ namespace ya
 		GameObject* wall_a = new GameObject();
 		GameObject* wall_b = new GameObject();
 
-		// ù��° ��
+		// Wall A
 		{
 			Transform* tr = wall_a->AddComponent<Transform>();
 			auto cld1 = wall_a->AddComponent<Collider>();
@@ -70,7 +70,7 @@ namespace ya
 			cld1->SetSize(Vector3::One);
 		}
 
-		// �ι�° ��
+		// Wall B
 		{
 			Transform* tr = wall_b->AddComponent<Transform>();
 			auto cld1 = wall_b->AddComponent<Collider>();
@@ -83,7 +83,7 @@ namespace ya
 		Portal* portal_a = new Portal(wall_a);
 		Portal* portal_b = new Portal(wall_b);
 
-		// ù��° ��Ż
+		// Portal A
 		{
 			MeshRenderer* meshRenderer = portal_a->AddComponent<MeshRenderer>();
 			meshRenderer->SetMesh(Resources::Find<Mesh>(L"SquareMesh"));
@@ -101,7 +101,7 @@ namespace ya
 			AddGameObject(portal_a, LAYER::PORTAL);
 		}
 
-		// �ι�° ��Ż
+		// Portal B
 		{
 			MeshRenderer* meshRenderer = portal_b->AddComponent<MeshRenderer>();
 			meshRenderer->SetMesh(Resources::Find<Mesh>(L"SquareMesh"));
@@ -151,6 +151,7 @@ namespace ya
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::PLAYER, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::PORTAL, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::LIGHT, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ATTACK, true);
 	}
 
 	void PlayScene::Update()
