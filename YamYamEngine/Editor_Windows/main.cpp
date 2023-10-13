@@ -121,8 +121,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	const int posX = (GetSystemMetrics(SM_CXSCREEN) - 1600)  / 2;
 	const int posY = (GetSystemMetrics(SM_CYSCREEN) - 900) / 2;
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      0, 0, 800, 600, nullptr, nullptr, hInstance, nullptr);
 
    HWND hWnd = CreateWindowExW(WS_EX_APPWINDOW, szWindowClass, szTitle, WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_POPUP,
       posX, posY, 1600, 900, nullptr, nullptr, hInstance, nullptr);
