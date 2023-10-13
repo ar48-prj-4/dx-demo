@@ -28,7 +28,7 @@ namespace ya
 	{
 		Scene::Initialize();
 
-		Camera::SetZoom(0.f);
+		Camera::SetZoom(700.f);
 	}
 	
 	void ToolScene::Update()
@@ -40,6 +40,15 @@ namespace ya
 		if (Input::GetKey(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::B))
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
+
+			//// 마우스 pos값 반올림
+			//float roundmousePosX = round(mousePos.x);
+			//float roundmousePosY = round(mousePos.y);
+
+			//// 마우스 커서의 위치를 타일의 인덱스로 바꿔주는 작업
+			//int idxX = (roundmousePosX) / (TILE_WIDTH);
+			//int idxY = (roundmousePosY) / (TILE_HEIGHT);
+
 
 			// 마우스 커서의 위치를 타일의 인덱스로 바꿔주는 작업
 			int idxX = (mousePos.x) / (TILE_WIDTH);
