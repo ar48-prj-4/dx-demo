@@ -10,8 +10,8 @@
 
 namespace ya
 {
-	UINT Tile::mSelectedX = 0;
-	UINT Tile::mSelectedY = 0;
+	int Tile::mSelectedX = 0;
+	int Tile::mSelectedY = 0;
 
 
 	Tile::Tile()

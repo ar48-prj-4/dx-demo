@@ -19,8 +19,8 @@ namespace ya
 			End,
 		};
 
-		static UINT mSelectedX;
-		static UINT mSelectedY;
+		static int mSelectedX;
+		static int mSelectedY;
 
 		Tile();
 		~Tile();
@@ -40,8 +40,8 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other) override;
 		virtual void OnCollisionExit(class Collider* other) override;
 
-		UINT GetTileIndexX() const { return mIndexX; }
-		UINT GetTileIndexY() const { return mIndexY; }
+		int GetTileIndexX() const { return mIndexX; }
+		int GetTileIndexY() const { return mIndexY; }
 
 		void SetCircle(Tile* tile);
 		void SetTriangle(Tile* tile);
@@ -54,8 +54,8 @@ namespace ya
 	private:
 		class MeshRenderer* mMeshRenderer;
 		class Transform* mTransform;
-		UINT mIndexX;
-		UINT mIndexY;
+		int mIndexX;
+		int mIndexY;
 
 		eTileType mType;
 

@@ -30,6 +30,8 @@ namespace ya
 	{
 		Scene::Initialize();
 
+		//PlayScene::Load();
+
 		//Player
 		{
 			Player* player = new Player();
@@ -180,6 +182,11 @@ namespace ya
 	void PlayScene::Update()
 	{
 		Scene::Update();
+
+		if (Input::GetKeyDown(eKeyCode::U))
+		{
+			PlayScene::Load();
+		}
 	}
 
 	void PlayScene::LateUpdate()
@@ -194,10 +201,9 @@ namespace ya
 
 	void PlayScene::Load()
 	{
-
 		OPENFILENAME ofn = {};
 
-		wchar_t szFilePath[256] = L"..\\Resources\\Tile\\ForestMap_1.tm";
+		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Stage_R.tm";
 
 		// rb : 이진수로 파일을 읽음
 		FILE* pFile = nullptr;
@@ -211,21 +217,37 @@ namespace ya
 			int	myX = -1;
 			int myY = -1;
 
+			Tile::eTileType myType = Tile::eTileType::End;
+
+			//Vector3 myPos = Vector3::Zero;
+
 			if (fread(&myX, sizeof(int), 1, pFile) == NULL)
 				break;
 			if (fread(&myY, sizeof(int), 1, pFile) == NULL)
 				break;
+			if (fread(&myType, sizeof(Tile::eTileType), 1, pFile) == NULL)
+				break;
+			//if (fread(&myPos, sizeof(Vector3), 1, pFile) == NULL)
+				//break;
 
-			Vector3 offset = Vector3((TILE_WIDTH) / 2.0f, (TILE_HEIGHT) / 2.0f, 1);
+
+			Vector3 offset = Vector3::Zero;
 
 			Tile* tile = new Tile();
 
-			tile->GetComponent<Transform>()->SetPosition(myX * (TILE_WIDTH)+offset.x
-				, myY * (TILE_HEIGHT)+offset.y, 1);
-			
+			tile->GetComponent<Transform>()->SetPosition(myX * (TILE_WIDTH)+offset.x + LEFT_TOP_X
+				, myY * (TILE_HEIGHT)+offset.y + LEFT_TOP_Y, 1);
+
+			//tile->GetComponent<Transform>()->SetPosition(myPos);
+
+			tile->SetTileIdx(myX, myY);
+			// 불러온 myType을 tile 객체에 텋는다
+			tile->SetType(myType);
+
 			if (tile->GetType() == Tile::eTileType::Circle)
 			{
 				tile->SetCircle(tile);
+
 			}
 			else if (tile->GetType() == Tile::eTileType::Triangle)
 			{
@@ -240,10 +262,12 @@ namespace ya
 				tile->SetFloor(tile);
 			}
 
-			tile->SetTileIdx(myX, myY);
+			AddGameObject(tile, LAYER::TILE);
 
 			mTiles.push_back(tile);
 		}
+
+		// 메모리 할당된 것을 삭제해주는 함수
 		fclose(pFile);
 	}
 }

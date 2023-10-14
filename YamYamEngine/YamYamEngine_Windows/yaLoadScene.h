@@ -17,6 +17,6 @@ namespace ya
 		SceneManager::CreateScene<ToolScene>(L"ToolScene");
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
 
-		SceneManager::LoadScene(L"ToolScene");
+		SceneManager::LoadScene(L"PlayScene");
 	}
 }

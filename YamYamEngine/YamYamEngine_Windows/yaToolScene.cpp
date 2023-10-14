@@ -60,7 +60,6 @@ namespace ya
 			tile->SetCircle(tile);
 			tile->SetType(Tile::eTileType::Circle);
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
-			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
 			tile->SetTileIdx(idxX, idxY);
 
 			AddGameObject(tile, LAYER::TILE);
@@ -92,7 +91,6 @@ namespace ya
 			tile->SetType(Tile::eTileType::Triangle);
 
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
-			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
 			tile->SetTileIdx(idxX, idxY);
 
 			AddGameObject(tile, LAYER::TILE);
@@ -123,7 +121,6 @@ namespace ya
 			tile->SetType(Tile::eTileType::Square);
 
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
-			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
 			tile->SetTileIdx(idxX, idxY);
 
 			AddGameObject(tile, LAYER::TILE);
@@ -154,7 +151,6 @@ namespace ya
 			tile->SetType(Tile::eTileType::Floor);
 
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
-			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
 			tile->SetTileIdx(idxX, idxY);
 
 			AddGameObject(tile, LAYER::TILE);
@@ -210,6 +206,7 @@ namespace ya
 		// 파일을 여는 함수
 		// wb : 파일을 이진수로 저장할 것인지
 		// wt : 텍스트로 저장할 것인지
+
 		_wfopen_s(&pFile, szFilePath, L"wb");
 		if (pFile == nullptr)
 			return;
@@ -234,6 +231,7 @@ namespace ya
 			fwrite(&myX, sizeof(int), 1, pFile);
 			fwrite(&myY, sizeof(int), 1, pFile);
 			fwrite(&myType, sizeof(Tile::eTileType), 1, pFile);
+
 			//fwrite(&myPos, sizeof(Vector3), 1, pFile);
 
 		}
@@ -290,8 +288,9 @@ namespace ya
 			//if (fread(&myPos, sizeof(Vector3), 1, pFile) == NULL)
 				//break;
 
+			
+			Vector3 offset = Vector3::Zero;
 
-			Vector3 offset = Vector3((TILE_WIDTH) / 2.0f, (TILE_HEIGHT) / 2.0f, 1);
 			Tile* tile = new Tile();
 
 			tile->GetComponent<Transform>()->SetPosition(myX * (TILE_WIDTH)+offset.x + LEFT_TOP_X
@@ -300,6 +299,9 @@ namespace ya
 			//tile->GetComponent<Transform>()->SetPosition(myPos);
 
 			tile->SetTileIdx(myX, myY);
+			// 불러온 myType을 tile 객체에 텋는다
+			tile->SetType(myType);
+
 			if (tile->GetType() == Tile::eTileType::Circle)
 			{
 				tile->SetCircle(tile);
@@ -317,6 +319,7 @@ namespace ya
 			{
 				tile->SetFloor(tile);
 			}
+
 			AddGameObject(tile, LAYER::TILE);
 
 			mTiles.push_back(tile);
