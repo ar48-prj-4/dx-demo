@@ -178,6 +178,7 @@ namespace ya
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::PORTAL, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::LIGHT, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ITEM, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::TILE, true);
 
 		Camera::SetZoom(10.f);
 	}
@@ -206,7 +207,7 @@ namespace ya
 	{
 		OPENFILENAME ofn = {};
 
-		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Stage_R.tm";
+		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Test.tm";
 
 		// rb : 이진수로 파일을 읽음
 		FILE* pFile = nullptr;

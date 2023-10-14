@@ -2,6 +2,7 @@
 #include "yaSceneManager.h"
 #include "yaPlayScene.h"
 #include "yaToolScene.h"
+#include "yaBossStage.h"
 
 
 //#ifdef  _DEBUG
@@ -16,7 +17,8 @@ namespace ya
 	{
 		SceneManager::CreateScene<ToolScene>(L"ToolScene");
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
+		SceneManager::CreateScene<BossStage>(L"BossStage");
 
-		SceneManager::LoadScene(L"PlayScene");
+		SceneManager::LoadScene(L"BossStage");
 	}
 }
