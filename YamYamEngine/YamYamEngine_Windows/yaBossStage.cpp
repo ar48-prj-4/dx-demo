@@ -37,23 +37,23 @@ namespace ya
 			boss->Initialize();
 
 			MeshRenderer* meshRenderer = boss->AddComponent<MeshRenderer>();
-			meshRenderer->SetMesh(Resources::Find<Mesh>(L"SquareMesh"));
+			meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
 			meshRenderer->SetShader(Resources::Find<Shader>(L"ColorShader"));
 
 			Transform* tr = boss->GetComponent<Transform>();
-			auto cld1 = boss->GetComponent<Collider>();
-			auto rb = boss->GetComponent<Rigidbody>();
+			auto bosscol = boss->GetComponent<Collider>();
+			auto bossrb = boss->GetComponent<Rigidbody>();
 			boss->AddComponent<BossScript>();
 
-			tr->SetPosition(Vector3(-2.5f, 0.2f, 1.0f));
-			tr->SetScale(Vector3(1.0f, 1.0f, 1.0f));
+			tr->SetPosition(Vector3(2.5f, 0.2f, 1.0f));
+			tr->SetScale(Vector3(2.0f, 2.0f, 1.0f));
 
-			cld1->SetSize(Vector3(1.0f, 1.0f, 1.0f));
+			bosscol->SetSize(Vector3(1.0f, 1.0f, 1.0f));
 
 			// ** 테스트용으로 플레이어의 중력을 없애놨음. 나중에 풀어야 함!! **
-			rb->SetGravity(Vector3::Zero);
+			bossrb->SetGravity(Vector3::Zero);
 
-			rb->SetFriction(0.25f);
+			bossrb->SetFriction(0.25f);
 
 			AddGameObject(boss, LAYER::BOSS);
 			AddGameObject(boss->GetBossShadow(), LAYER::BOSS);

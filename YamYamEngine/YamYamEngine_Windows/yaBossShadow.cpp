@@ -23,7 +23,7 @@ namespace ya
 		GameObject::Initialize();
 
 		const auto tr = AddComponent<Transform>();
-		tr->SetScale(1.0f, 1.0f, 1.0f);
+		tr->SetScale(2.0f, 2.0f, 1.0f);
 		tr->SetPosition(m_boss_->GetComponent<Transform>()->GetPosition());
 
 		const auto mesh = AddComponent<MeshRenderer>();
@@ -38,6 +38,15 @@ namespace ya
 	void BossShadow::Update()
 	{
 		GameObject::Update();
+
+		if (GetComponent<MeshRenderer>()->IsEnabled())
+		{
+			const auto tr = GetComponent<Transform>();
+			const auto boss_pos = m_boss_->GetComponent<Transform>()->GetPosition();
+			const auto boss_scale = m_boss_->GetComponent<Transform>()->GetScale();
+
+			tr->SetPosition(boss_pos);
+		}
 	}
 	void BossShadow::OnCollisionEnter(Collider* other)
 	{
@@ -60,15 +69,36 @@ namespace ya
 
 		const auto mesh = GetComponent<MeshRenderer>();
 		mesh->SetEnabled(true);
+		m_meeting_lights_.emplace(light);
 	}
 	void BossShadow::BossCollisionLightExit(Lighting* light)
 	{
 		const auto mesh = GetComponent<MeshRenderer>();
 		mesh->SetEnabled(false);
+		m_meeting_lights_.erase(light);
 	}
 	Lighting* BossShadow::GetClosestLight()
 	{
-		return nullptr;
+		if (m_meeting_lights_.empty())
+		{
+			return nullptr;
+		}
+
+		Lighting* closest_light = *m_meeting_lights_.begin();
+		const auto shadow_pos = GetComponent<Transform>()->GetPosition();
+		float dist = Vector3::DistanceSquared(closest_light->GetComponent<Transform>()->GetPosition(), shadow_pos);
+
+		for (const auto& light : m_meeting_lights_)
+		{
+			const auto pos = light->GetComponent<Transform>()->GetPosition();
+			if (Vector3::DistanceSquared(pos, shadow_pos) < dist)
+			{
+				closest_light = light;
+				dist = Vector3::DistanceSquared(pos, shadow_pos);
+			}
+		}
+
+		return closest_light;
 	}
 	void BossShadow::FlipShadowIfLower(Transform* const tr, const Vector3 boss_pos)
 	{
