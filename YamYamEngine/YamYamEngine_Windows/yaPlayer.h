@@ -54,6 +54,8 @@ namespace ya
 
 		int GetHP() { return HP; }
 		void SetHP(int hp) { HP = hp; }
+		int GetLightPower() { return m_light_power; }
+		void SetLightPower(int lightpower) { m_light_power = lightpower; }
 
 	private:
 		void DispatchShadowAttack();
@@ -64,7 +66,7 @@ namespace ya
 		int HP;
 		Rigidbody* rb;
 		//float jumptime;
-
+		int m_light_power;
 		PlayerShadow* m_shadow_;
 		MeleeHitBox* m_melee_hitbox_;
 	};

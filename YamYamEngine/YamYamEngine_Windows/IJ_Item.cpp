@@ -1,6 +1,8 @@
 #include "IJ_Item.h"
 #include "yaTransform.h"
 #include "yaCollider.h"
+#include "yaMeshRenderer.h"
+#include "yaResources.h"
 #include "yaPlayer.h"
 
 
@@ -22,7 +24,12 @@ namespace IJ
 		tr->SetRotation(0.0f, 0.0f, 0.0f);
 		tr->SetScale(1.0f, 1.0f, 1.0f);
 
-		AddComponent<ya::Collider>();
+		ya::Collider* col = AddComponent<ya::Collider>();
+		col->SetSize(ya::Vector3{ 0.1f, 0.1f, 0.1f });
+
+		ya::MeshRenderer* mr = AddComponent<ya::MeshRenderer>();
+		mr->SetMesh(ya::Resources::Find<ya::Mesh>(L"TriangleMesh"));
+		mr->SetShader(ya::Resources::Find<ya::Shader>(L"ColorShader"));
 	}
 
 	void Item::Update()
