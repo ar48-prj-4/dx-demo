@@ -59,6 +59,8 @@ namespace ya
 			AddGameObject(boss->GetBossShadow(), LAYER::BOSS);
 		}
 
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::BOSS, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ATTACK, true);
 
 	}
 	void BossStage::Update()

@@ -22,6 +22,7 @@ namespace ya
 
 	private:
 		static Vector3 mBossPos;
+		Vector3 mPlayerPos;
 		Vector3 mBossOrbit;
 		PlayerScript* mPlayerSC;
 	};

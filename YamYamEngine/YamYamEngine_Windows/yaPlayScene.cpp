@@ -15,6 +15,8 @@
 #include "yaTurretScript.h"
 #include "IJ_Button.h"
 #include "yaTile.h"
+
+//Boss Test
 #include "yaBoss.h"
 #include "yaBossScript.h"
 
@@ -142,7 +144,7 @@ namespace ya
 			turret->AddComponent<Collider>()->SetSize(Vector3(0.1f, 0.1f, 1.0f));
 		}
 
-		//Boss
+		//Test Boss
 		{
 			Boss* boss = new Boss();
 			boss->Initialize();

@@ -16,7 +16,6 @@ namespace ya
 	}
 	void BulletScript::Initialize()
 	{
-		
 	}
 	void BulletScript::Update()
 	{

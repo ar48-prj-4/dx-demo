@@ -4,6 +4,7 @@
 #include "yaTransform.h"
 #include "yaTime.h"
 #include "yaRigidbody.h"
+#include "yaBoss.h"
 #include "yaPlayer.h"
 
 namespace ya
@@ -11,7 +12,8 @@ namespace ya
 	Vector3 BossScript::mBossPos = Vector3::Zero;
 
 	BossScript::BossScript()
-		: mBossOrbit(Vector3::Zero)
+		: mPlayerPos(Vector3::Zero)
+		, mBossOrbit(Vector3::Zero)
 		, mPlayerSC(nullptr)
 	{
 	}
@@ -24,10 +26,12 @@ namespace ya
 	void BossScript::Update()
 	{
 		GameObject* obj = GetOwner();
+		Boss* boss = dynamic_cast<Boss*>(obj);
+
 		Transform* tr = obj->GetComponent<Transform>();
 		Rigidbody* rb = obj->GetComponent<Rigidbody>();
 
-		Vector3 mPlayerPos = mPlayerSC->GetPosition();
+		mPlayerPos = mPlayerSC->GetPosition();
 
 		mBossOrbit = { (mPlayerPos.x - mBossPos.x), (mPlayerPos.y - mBossPos.y), 1.0f };
 		mBossOrbit.normalize();
