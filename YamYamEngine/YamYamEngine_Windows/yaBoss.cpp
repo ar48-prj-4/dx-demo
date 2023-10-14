@@ -94,14 +94,14 @@ namespace ya
 	}
 	void Boss::Red()
 	{
-		if (HP <= 70)
+		if (HP <= 70 && HP > 30)
 		{
 			mState = eState::Green;
 		}
 	}
 	void Boss::Green()
 	{
-		if (HP <= 30)
+		if (HP <= 30 && HP > 0)
 		{
 			mState = eState::Blue;
 		}

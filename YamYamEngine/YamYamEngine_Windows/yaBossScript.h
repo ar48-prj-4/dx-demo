@@ -1,5 +1,6 @@
 #pragma once
 #include "yaScript.h"
+#include "yaPlayerScript.h"
 
 namespace ya
 {
@@ -20,6 +21,8 @@ namespace ya
 		}
 
 	private:
-		Vector3 mBossPos;
+		static Vector3 mBossPos;
+		Vector3 mBossOrbit;
+		PlayerScript* mPlayerSC;
 	};
 }
