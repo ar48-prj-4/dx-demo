@@ -53,6 +53,21 @@
     <ClCompile Include="yaTurretScript.cpp">
       <Filter>Script\Turret</Filter>
     </ClCompile>
+    <ClCompile Include="IJ_Item.cpp">
+      <Filter>GameObject\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="IJ_Item_Heal.cpp">
+      <Filter>GameObject\Item\Heal</Filter>
+    </ClCompile>
+    <ClCompile Include="IJ_Item_Pocket_Light.cpp">
+      <Filter>GameObject\Item\PocketLight</Filter>
+    </ClCompile>
+    <ClCompile Include="yaLight_TimeLimit.cpp">
+      <Filter>GameObject\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="yaPlayerLightScript.cpp">
+      <Filter>Script\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IJ_PlayerAim_Temp.h" />
@@ -110,6 +125,21 @@
     <ClInclude Include="yaTurretScript.h">
       <Filter>Script\Turret</Filter>
     </ClInclude>
+    <ClInclude Include="IJ_Item.h">
+      <Filter>GameObject\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="IJ_Item_Heal.h">
+      <Filter>GameObject\Item\Heal</Filter>
+    </ClInclude>
+    <ClInclude Include="IJ_Item_Pocket_Light.h">
+      <Filter>GameObject\Item\PocketLight</Filter>
+    </ClInclude>
+    <ClInclude Include="yaLight_TimeLimit.h">
+      <Filter>GameObject\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="yaPlayerLightScript.h">
+      <Filter>Script\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -162,6 +192,15 @@
     </Filter>
     <Filter Include="Script\Turret">
       <UniqueIdentifier>{62be56bb-4708-44ab-8566-d1f645f234c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Item">
+      <UniqueIdentifier>{12c3d7da-5669-4829-9c09-f74ec3c60dcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Item\Heal">
+      <UniqueIdentifier>{484cfb0f-ff88-4dd0-aa6e-4c95ff91fd51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Item\PocketLight">
+      <UniqueIdentifier>{5cc3601a-b236-4fea-b6ec-af3caa5d778d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

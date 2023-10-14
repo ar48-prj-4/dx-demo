@@ -12,7 +12,7 @@ namespace IJ
 		, m_Current_Button_State(eButtonState::Idle)
 		, Connected_GameObjects({})
 	{
-		Connected_GameObjects.reserve(5);
+		Connected_GameObjects.reserve(4);
 		AddComponent<ya::Transform>();
 		AddComponent<ya::Collider>();
 		AddComponent<ya::MeshRenderer>();

@@ -42,6 +42,8 @@ namespace ya
 
 		int GetHP() { return HP; }
 		void SetHP(int hp) { HP = hp; }
+		int GetLightPower() { return m_light_power; }
+		void SetLightPower(int lightpower) { m_light_power = lightpower; }
 
 	private:
 		eState mState;
@@ -49,6 +51,6 @@ namespace ya
 		Rigidbody* rb;
 		//float jumptime;
 		PlayerShadow* m_shadow_;
-
+		int m_light_power;
 	};
 }
