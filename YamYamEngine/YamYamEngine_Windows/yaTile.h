@@ -48,6 +48,8 @@ namespace ya
 		void SetSquare(Tile* tile);
 		void SetFloor(Tile* tile);
 
+		//Transform* GetPos() { return mTransform; }
+
 
 	private:
 		class MeshRenderer* mMeshRenderer;

@@ -28,7 +28,9 @@ namespace ya
 	{
 		Scene::Initialize();
 
-		Camera::SetZoom(700.f);
+		Camera::SetZoom(500.f);
+		
+
 	}
 	
 	void ToolScene::Update()
@@ -41,18 +43,13 @@ namespace ya
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 
-			//// 마우스 pos값 반올림
-			//float roundmousePosX = round(mousePos.x);
-			//float roundmousePosY = round(mousePos.y);
-
-			//// 마우스 커서의 위치를 타일의 인덱스로 바꿔주는 작업
-			//int idxX = (roundmousePosX) / (TILE_WIDTH);
-			//int idxY = (roundmousePosY) / (TILE_HEIGHT);
-
+			// 마우스 pos값 반올림
+			float roundmousePosX = round(mousePos.x);
+			float roundmousePosY = round(mousePos.y);
 
 			// 마우스 커서의 위치를 타일의 인덱스로 바꿔주는 작업
-			int idxX = (mousePos.x) / (TILE_WIDTH);
-			int idxY = (mousePos.y) / (TILE_HEIGHT);
+			int idxX = (int)((roundmousePosX) / (TILE_WIDTH));
+			int idxY = (int)((roundmousePosY) / (TILE_HEIGHT));
 
 			Vector3 offset = Vector3(0, 0, 1);
 
@@ -76,9 +73,13 @@ namespace ya
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 
+			// 마우스 pos값 반올림
+			float roundmousePosX = round(mousePos.x);
+			float roundmousePosY = round(mousePos.y);
+
 			// 마우스 커서의 위치를 타일의 인덱스로 바꿔주는 작업
-			int idxX = (mousePos.x) / (TILE_WIDTH);
-			int idxY = (mousePos.y) / (TILE_HEIGHT);
+			int idxX = (int)((roundmousePosX) / (TILE_WIDTH));
+			int idxY = (int)((roundmousePosY) / (TILE_HEIGHT));
 
 			Vector3 offset = Vector3(0, 0, 1);
 
@@ -88,6 +89,7 @@ namespace ya
 
 
 			tile->SetTriangle(tile);
+			tile->SetType(Tile::eTileType::Triangle);
 
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
 			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
@@ -103,9 +105,13 @@ namespace ya
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 
+			// 마우스 pos값 반올림
+			float roundmousePosX = round(mousePos.x);
+			float roundmousePosY = round(mousePos.y);
+
 			// 마우스 커서의 위치를 타일의 인덱스로 바꿔주는 작업
-			int idxX = (mousePos.x) / (TILE_WIDTH);
-			int idxY = (mousePos.y) / (TILE_HEIGHT);
+			int idxX = (int)((roundmousePosX) / (TILE_WIDTH));
+			int idxY = (int)((roundmousePosY) / (TILE_HEIGHT));
 
 			Vector3 offset = Vector3(0, 0, 1);
 
@@ -114,6 +120,7 @@ namespace ya
 				), (idxY * (TILE_HEIGHT)+offset.y), 1));
 
 			tile->SetSquare(tile);
+			tile->SetType(Tile::eTileType::Square);
 
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
 			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
@@ -129,9 +136,13 @@ namespace ya
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 
+			// 마우스 pos값 반올림
+			float roundmousePosX = round(mousePos.x);
+			float roundmousePosY = round(mousePos.y);
+
 			// 마우스 커서의 위치를 타일의 인덱스로 바꿔주는 작업
-			int idxX = (mousePos.x) / (TILE_WIDTH);
-			int idxY = (mousePos.y) / (TILE_HEIGHT);
+			int idxX = (int)((roundmousePosX) / (TILE_WIDTH));
+			int idxY = (int)((roundmousePosY) / (TILE_HEIGHT));
 
 			Vector3 offset = Vector3(0, 0, 1);
 
@@ -140,6 +151,7 @@ namespace ya
 				), (idxY * (TILE_HEIGHT)+offset.y), 1));
 
 			tile->SetFloor(tile);
+			tile->SetType(Tile::eTileType::Floor);
 
 			tile->SetTile(Tile::mSelectedX, Tile::mSelectedY);
 			//tile->SetSourceTileIdx(Tile::mSelectedX, Tile::mSelectedY);
@@ -150,8 +162,6 @@ namespace ya
 			mTiles.push_back(tile);
 		}
 	
-
-		
 
 		// 타일을 깔고 어딘가에 저장을 해야 함 
 		// 파일 입출력(램에 있는 데이터를 SSD에 옮기는 작업)
@@ -169,6 +179,7 @@ namespace ya
 	{
 		Scene::Render();
 	}
+
 	// 파일 입출력
 	void ToolScene::Save()
 	{
@@ -203,6 +214,7 @@ namespace ya
 		if (pFile == nullptr)
 			return;
 
+
 		for (Tile* tile : mTiles)
 		{
 			Vector3 idx = tile->GetTileIdx();
@@ -210,17 +222,27 @@ namespace ya
 			int	myX = idx.x;
 			int myY = idx.y;
 
+			//Transform* pos = tile->GetPos();
+
+			//Vector3 myPos = pos->GetPosition();
+
+			Tile::eTileType myType = tile->GetType();
+
 			// 열어놓은 파일에 원하는 크기만큼 파일에 기록
 			// sourceX, sourceY - 우측의 타일의 소스 인덱스
 			// myX, myY - 좌측의 타일 인덱스
 			fwrite(&myX, sizeof(int), 1, pFile);
 			fwrite(&myY, sizeof(int), 1, pFile);
+			fwrite(&myType, sizeof(Tile::eTileType), 1, pFile);
+			//fwrite(&myPos, sizeof(Vector3), 1, pFile);
+
 		}
 
 		// 메모리 할당된 것을 삭제해주는 함수
 		fclose(pFile);
 	}
 
+	// x,y양수부분만 불러와짐
 	void ToolScene::Load()
 	{
 		OPENFILENAME ofn = {};
@@ -255,10 +277,19 @@ namespace ya
 			int	myX = -1;
 			int myY = -1;
 
+			Tile::eTileType myType = Tile::eTileType::End;
+
+			//Vector3 myPos = Vector3::Zero;
+
 			if (fread(&myX, sizeof(int), 1, pFile) == NULL)
 				break;
 			if (fread(&myY, sizeof(int), 1, pFile) == NULL)
 				break;
+			if (fread(&myType, sizeof(Tile::eTileType), 1, pFile) == NULL)
+				break;
+			//if (fread(&myPos, sizeof(Vector3), 1, pFile) == NULL)
+				//break;
+
 
 			Vector3 offset = Vector3((TILE_WIDTH) / 2.0f, (TILE_HEIGHT) / 2.0f, 1);
 			Tile* tile = new Tile();
@@ -266,10 +297,13 @@ namespace ya
 			tile->GetComponent<Transform>()->SetPosition(myX * (TILE_WIDTH)+offset.x + LEFT_TOP_X
 				, myY * (TILE_HEIGHT)+offset.y + LEFT_TOP_Y, 1);
 
+			//tile->GetComponent<Transform>()->SetPosition(myPos);
+
 			tile->SetTileIdx(myX, myY);
 			if (tile->GetType() == Tile::eTileType::Circle)
 			{
 				tile->SetCircle(tile);
+				
 			}
 			else if (tile->GetType() == Tile::eTileType::Triangle)
 			{
