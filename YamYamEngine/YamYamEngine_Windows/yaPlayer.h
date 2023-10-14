@@ -40,6 +40,9 @@ namespace ya
 		void Hit();
 		void Dead();
 
+		int GetHP() { return HP; }
+		void SetHP(int hp) { HP = hp; }
+
 	private:
 		eState mState;
 		int HP;
