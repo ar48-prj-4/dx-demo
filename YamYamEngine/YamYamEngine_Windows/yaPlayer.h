@@ -52,6 +52,9 @@ namespace ya
 		MeleeHitBox* GetMeleeHitBox() const { return m_melee_hitbox_; }
 		PlayerShadow* GetPlayerShadow() const { return m_shadow_; }
 
+		int GetHP() { return HP; }
+		void SetHP(int hp) { HP = hp; }
+
 	private:
 		void DispatchShadowAttack();
 
