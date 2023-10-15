@@ -32,16 +32,16 @@ namespace ya
 
 		mTime += Time::DeltaTime();
 
-		if (mTime >= 0.5f)
+		if (mTime >= 2.0f)
 		{
 			const auto turret = dynamic_cast<Turret*>(obj);
-			const auto player = turret->GetPlayer();
 
-			const auto player_pos = player->GetComponent<Transform>()->GetPosition();
+			const auto player_pos = ya::PlayerScript::GetPosition();
 			const auto turret_pos = tr->GetPosition();
 			const auto offset = (player_pos - turret_pos).normalize();
 
-			Bullet::InstantiateBullet(tr, offset, 2.0f);
+			GetOwner()->AddChildObject(Bullet::InstantiateBullet(tr, offset, 5.0f));
+
 			mTime = 0.0f;
 		}
 

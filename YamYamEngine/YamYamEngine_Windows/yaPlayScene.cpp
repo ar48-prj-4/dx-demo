@@ -142,7 +142,6 @@ namespace ya
 			turret->AddComponent<TurretScript>();
 			AddGameObject(turret, LAYER::TURRET);
 			turret->AddComponent<Collider>()->SetSize(Vector3(0.1f, 0.1f, 1.0f));
-			turret->SetPlayer(mPlayer);
 		}
 
 		//Test Boss
@@ -212,6 +211,9 @@ namespace ya
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::LIGHT, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ITEM, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::TILE, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::BOSS, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ATTACK, true);
+		CollisionManager::CollisionLayerCheck(LAYER::TILE, LAYER::ATTACK, true);
 
 		Camera::SetZoom(20.f);
 	}

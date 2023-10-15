@@ -15,7 +15,7 @@ namespace ya
 		void LateUpdate() override;
 		void Render() override;
 
-		Vector3 GetPosition()
+		static Vector3 GetPosition()
 		{
 			return mPlayerPos;
 		}

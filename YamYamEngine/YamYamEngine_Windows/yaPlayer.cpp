@@ -36,12 +36,14 @@ namespace ya
 		AddComponent<Collider>();
 		m_shadow_ = new PlayerShadow(this);
 		m_shadow_->Initialize();
+		AddChildObject(m_shadow_);
 
 		rb = GetComponent<Rigidbody>();
 		rb->SetGround(true);
 
 		m_melee_hitbox_ = new MeleeHitBox(this);
 		m_melee_hitbox_->Initialize();
+		AddChildObject(m_melee_hitbox_);
 	}
 
 	void Player::Update()

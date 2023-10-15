@@ -31,6 +31,7 @@ namespace ya
 
 		m_bossshadow_ = new BossShadow(this);
 		m_bossshadow_->Initialize();
+		AddChildObject(m_bossshadow_);
 
 		rb = GetComponent<Rigidbody>();
 		rb->SetGround(true);

@@ -8,6 +8,8 @@
 #include "yaRigidbody.h"
 #include "yaSceneManager.h"
 #include "yaCollider.h"
+#include "yaPlayer.h"
+#include "yaTile.h"
 
 namespace ya
 {
@@ -41,17 +43,37 @@ namespace ya
 
 	void Bullet::OnCollisionEnter(Collider* other)
 	{
+		GameObject::OnCollisionEnter(other);
+
+		//Player* player = dynamic_cast<Player*>(other->GetOwner());
+		//Tile* tile = dynamic_cast<Tile*>(other->GetOwner());
+
+		//if (player == nullptr && tile == nullptr)
+		//{
+		//	return;
+		//}
+
+		//Destroy(this);
+
+		const auto layer = other->GetOwner()->GetLayer();
+
+		if (layer == LAYER::TILE)
+		{
+			Destroy(this);
+		}
 	}
 
 	void Bullet::OnCollisionStay(Collider* other)
 	{
+		GameObject::OnCollisionStay(other);
 	}
 
 	void Bullet::OnCollisionExit(Collider* other)
 	{
+		GameObject::OnCollisionExit(other);
 	}
 
-	void Bullet::InstantiateBullet(Transform* tr, Vector3 offset, float speed)
+	Bullet* Bullet::InstantiateBullet(Transform* tr, Vector3 offset, float speed)
 	{
 		Bullet* bullet = new Bullet();
 		bullet->Initialize();
@@ -73,5 +95,7 @@ namespace ya
 		bullet->AddComponent<Collider>();
 
 		SceneManager::GetActiveScene()->AddGameObject(bullet, LAYER::ATTACK);
+
+		return bullet;
 	}
 }

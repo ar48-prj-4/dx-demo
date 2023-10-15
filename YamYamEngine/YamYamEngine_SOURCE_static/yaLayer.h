@@ -22,7 +22,7 @@ namespace ya
 	private:
 		friend class Scene;
 		void SetLayerType(LAYER type) { mType = type; }
-		void LayerItemCheck(GameObject* obj);
+		bool LayerItemCheck(GameObject* obj);
 
 		LAYER mType;
 		std::vector<GameObject*> mGameObjects;

@@ -1,4 +1,5 @@
 #pragma once
+#include "yaPlayerScript.h"
 #include "yaScript.h"
 #include "yaTransform.h"
 
@@ -23,5 +24,6 @@ namespace ya
 	private:
 		float mTime;
 		static Vector3 mTurretPos;
+		PlayerScript* mPlayerSC;
 	};
 }

@@ -1,6 +1,7 @@
 #include "yaLayer.h"
 
 #include "yaSceneManager.h"
+#include "yaCollisionManager.h"
 
 
 namespace ya
@@ -18,7 +19,7 @@ namespace ya
 		}
 	}
 
-	void Layer::LayerItemCheck(GameObject* obj)
+	bool Layer::LayerItemCheck(GameObject* obj)
 	{
 		if (obj->GetLayer() != mType)
 		{
@@ -27,7 +28,11 @@ namespace ya
 			{
 				return cmp == obj;
 			});
+
+			return true;
 		}
+
+		return false;
 	}
 
 	void Layer::Initialize()
@@ -43,9 +48,38 @@ namespace ya
 	{
 		for(int i = 0; i < mGameObjects.size(); i++)
 		{
+			// 객체가 죽으면 이터레이터로 순회하면서 삭제
+			if (mGameObjects[i]->GetState() == GameObject::eState::Dead)
+			{
+				continue;
+			}
+
 			mGameObjects[i]->Update();
-			LayerItemCheck(mGameObjects[i]);
+
+			if (LayerItemCheck(mGameObjects[i]))
+			{
+				continue;
+			}
 		}
+
+
+		//for (std::vector<GameObject*>::iterator iter = mGameObjects.begin()
+		//	; iter != mGameObjects.end()
+		//	; )
+		//{
+		//	// 객체가 죽으면 이터레이터로 순회하면서 삭제
+		//	if ((*iter)->GetState() == GameObject::eState::Dead)
+		//	{
+		//		iter = mGameObjects.erase(iter);
+		//		GameObject* deadObj = *iter;
+		//		delete deadObj;
+		//		deadObj = nullptr;
+		//	}
+		//	else
+		//	{
+		//		iter++;
+		//	}
+		//}
 	}
 
 	void Layer::LateUpdate()
@@ -53,7 +87,6 @@ namespace ya
 		for(int i = 0; i < mGameObjects.size(); i++)
 		{
 			mGameObjects[i]->LateUpdate();
-			LayerItemCheck(mGameObjects[i]);
 		}
 	}
 
@@ -61,9 +94,18 @@ namespace ya
 	{
 		for(int i = 0; i < mGameObjects.size(); i++)
 		{
+			if (mGameObjects[i]->GetState() == GameObject::eState::Dead)
+			{
+				delete mGameObjects[i];
+				mGameObjects[i] = nullptr;
+				mGameObjects.erase(mGameObjects.begin() + i);
+				i--;
+				continue;
+			}
+
 			mGameObjects[i]->Render();
-			LayerItemCheck(mGameObjects[i]);
 		}
+
 	}
 
 	void Layer::AddGameObject(GameObject* gameObject)
