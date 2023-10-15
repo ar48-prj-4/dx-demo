@@ -142,7 +142,6 @@ namespace ya
 			turret->AddComponent<TurretScript>();
 			AddGameObject(turret, LAYER::TURRET);
 			turret->AddComponent<Collider>()->SetSize(Vector3(0.1f, 0.1f, 1.0f));
-			turret->SetPlayer(mPlayer);
 		}
 
 		//Test Boss

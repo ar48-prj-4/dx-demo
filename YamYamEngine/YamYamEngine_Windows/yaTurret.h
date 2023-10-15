@@ -31,11 +31,7 @@ namespace ya
 		void Grabbed();
 		void Distroy();
 
-		void SetPlayer(Player* player) { mPlayer = player; }
-		Player* GetPlayer() const { return mPlayer; }
-
 	private:
 		eState mState;
-		Player* mPlayer;
 	};
 }
