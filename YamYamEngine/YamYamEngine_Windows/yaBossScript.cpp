@@ -14,7 +14,6 @@ namespace ya
 	BossScript::BossScript()
 		: mPlayerPos(Vector3::Zero)
 		, mBossOrbit(Vector3::Zero)
-		, mPlayerSC(nullptr)
 	{
 	}
 	BossScript::~BossScript()
@@ -31,7 +30,7 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Rigidbody* rb = obj->GetComponent<Rigidbody>();
 
-		mPlayerPos = mPlayerSC->GetPosition();
+		mPlayerPos = ya::PlayerScript::GetPosition();
 
 		mBossOrbit = { (mPlayerPos.x - mBossPos.x), (mPlayerPos.y - mBossPos.y), 1.0f };
 		mBossOrbit.normalize();
