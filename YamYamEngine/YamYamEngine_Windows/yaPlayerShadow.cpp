@@ -33,9 +33,10 @@ namespace ya
 		// TODO: 다른 그림자 또는 광원에 충돌했을떄의 처리
 		AddComponent<Collider>()->SetSize({1.0f, 1.0f, 1.0f});
 
-		m_melee_hitbox_ = new MeleeHitBox(m_player_);
+		m_melee_hitbox_ = new MeleeHitBox(this);
 		m_melee_hitbox_->Initialize();
 		SetName(L"Shadow");
+		AddChildObject(m_melee_hitbox_);
 	}
 
 	Lighting* PlayerShadow::GetClosestLight()

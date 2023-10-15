@@ -36,6 +36,7 @@ namespace ya
 		AddComponent<Collider>();
 		m_shadow_ = new PlayerShadow(this);
 		m_shadow_->Initialize();
+		AddChildObject(m_shadow_);
 
 		rb = GetComponent<Rigidbody>();
 		rb->SetGround(true);
