@@ -28,7 +28,7 @@ namespace ya
 	{
 		Scene::Initialize();
 
-		//Camera::SetZoom(50.f);
+		//Camera::SetZoom(20.f);
 		
 
 	}

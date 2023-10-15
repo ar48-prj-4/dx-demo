@@ -58,7 +58,7 @@ namespace ya
 			// ** 테스트용으로 플레이어의 중력을 없애놨음. 나중에 풀어야 함!! **
 			rb->SetGravity(Vector3::Zero);
 
-			rb->SetFriction(0.25f);
+			rb->SetFriction(0.7f);
 
 			AddGameObject(player, LAYER::PLAYER);
 			AddGameObject(player->GetPlayerShadow(), LAYER::PLAYER);
@@ -212,7 +212,7 @@ namespace ya
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ITEM, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::TILE, true);
 
-		Camera::SetZoom(10.f);
+		Camera::SetZoom(20.f);
 	}
 
 	void PlayScene::Update()
@@ -239,7 +239,7 @@ namespace ya
 	{
 		OPENFILENAME ofn = {};
 
-		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Boss.tm";
+		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Stage.tm";
 
 		// rb : 이진수로 파일을 읽음
 		FILE* pFile = nullptr;
