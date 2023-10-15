@@ -56,6 +56,18 @@
     <ClCompile Include="yaMeleeHitBox.cpp">
       <Filter>GameObject\Player</Filter>
     </ClCompile>
+    <ClCompile Include="yaBossScript.cpp">
+      <Filter>Script\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="yaBossShadow.cpp">
+      <Filter>GameObject\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="yaBoss.cpp">
+      <Filter>GameObject\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="yaBossStage.cpp">
+      <Filter>Scene\BossStage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IJ_PlayerAim_Temp.h" />
@@ -116,6 +128,18 @@
     <ClInclude Include="yaMeleeHitBox.hpp">
       <Filter>GameObject\Player</Filter>
     </ClInclude>
+    <ClInclude Include="yaBossScript.h">
+      <Filter>Script\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="yaBossShadow.h">
+      <Filter>GameObject\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="yaBoss.h">
+      <Filter>GameObject\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="yaBossStage.h">
+      <Filter>Scene\BossStage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -168,6 +192,15 @@
     </Filter>
     <Filter Include="Script\Turret">
       <UniqueIdentifier>{62be56bb-4708-44ab-8566-d1f645f234c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script\Boss">
+      <UniqueIdentifier>{a2a8671f-a246-4a53-b744-b8d201e20c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Boss">
+      <UniqueIdentifier>{1d9d7621-a245-4314-9116-60fbc6513f42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\BossStage">
+      <UniqueIdentifier>{610fb8de-16df-4762-b529-21daf2df0bb8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
