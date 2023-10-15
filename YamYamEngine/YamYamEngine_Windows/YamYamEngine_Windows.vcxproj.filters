@@ -67,6 +67,8 @@
     </ClCompile>
     <ClCompile Include="yaPlayerLightScript.cpp">
       <Filter>Script\Player</Filter>
+    <ClCompile Include="yaMeleeHitBox.cpp">
+      <Filter>GameObject\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +141,8 @@
     </ClInclude>
     <ClInclude Include="yaPlayerLightScript.h">
       <Filter>Script\Player</Filter>
+    <ClInclude Include="yaMeleeHitBox.hpp">
+      <Filter>GameObject\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

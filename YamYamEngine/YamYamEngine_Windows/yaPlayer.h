@@ -1,5 +1,6 @@
 #pragma once
 #include "yaGameObject.h"
+#include "yaMeleeHitBox.hpp"
 #include "yaPlayerShadow.h"
 #include "yaRigidbody.h"
 
@@ -13,11 +14,16 @@ namespace ya
 			Idle,
 			Live,
 			Shoot,
-			Jump,
-			Fall,
+			Attack,
 			Hit,
 			Dead,
 			End,
+		};
+
+		enum class ePlayerAs
+		{
+			Self,
+			Shadow
 		};
 
 		Player();
@@ -35,7 +41,7 @@ namespace ya
 		void Idle();
 		void Live();
 		void Shoot();
-		void Jump();
+		void Attack();
 		void Fall();
 		void Hit();
 		void Dead();
@@ -45,12 +51,23 @@ namespace ya
 		int GetLightPower() { return m_light_power; }
 		void SetLightPower(int lightpower) { m_light_power = lightpower; }
 
+		void SetState(eState state) { mState = state; }
+		void SetPlayerAs(ePlayerAs player_as) { mPlayerAs = player_as; }
+
+		MeleeHitBox* GetMeleeHitBox() const { return m_melee_hitbox_; }
+		PlayerShadow* GetPlayerShadow() const { return m_shadow_; }
+
 	private:
+		void DispatchShadowAttack();
+
 		eState mState;
+		ePlayerAs mPlayerAs;
+
 		int HP;
 		Rigidbody* rb;
 		//float jumptime;
 		PlayerShadow* m_shadow_;
-		int m_light_power;
+		MeleeHitBox* m_melee_hitbox_;
+    int m_light_power;
 	};
 }

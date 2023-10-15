@@ -158,6 +158,7 @@
     <ClInclude Include="yaLoadScene.h" />
     <ClInclude Include="yaPlayer.h" />
     <ClInclude Include="yaPlayerLightScript.h" />
+    <ClInclude Include="yaMeleeHitBox.hpp" />
     <ClInclude Include="yaPlayerScript.h" />
     <ClInclude Include="yaPlayerShadow.h" />
     <ClInclude Include="yaPlayScene.h" />
@@ -183,6 +184,7 @@
     <ClCompile Include="yaLight_TimeLimit.cpp" />
     <ClCompile Include="yaPlayer.cpp" />
     <ClCompile Include="yaPlayerLightScript.cpp" />
+    <ClCompile Include="yaMeleeHitBox.cpp" />
     <ClCompile Include="yaPlayerScript.cpp" />
     <ClCompile Include="yaPlayerShadow.cpp" />
     <ClCompile Include="yaPlayScene.cpp" />
