@@ -20,6 +20,6 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other);
 		virtual void OnCollisionExit(class Collider* other);
 
-		static void InstantiateBullet(Transform* tr, Vector3 offset, float speed);
+		static Bullet* InstantiateBullet(Transform* tr, Vector3 offset, float speed);
 	};
 }

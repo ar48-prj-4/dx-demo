@@ -82,6 +82,8 @@ namespace ya
 		std::vector<Component*>& GetComponents() { return mComponents; }
 		std::vector<Script*>& GetScripts() { return mScripts; }
 
+		void AddChildObject(GameObject* child) { mChildren.push_back(child); }
+
 		virtual void Initialize();
 		virtual void Update();
 		virtual void LateUpdate();
@@ -93,9 +95,11 @@ namespace ya
 
 		void SetLayer(LAYER LayerType) { mLayer = LayerType; }
 		LAYER GetLayer() { return mLayer; }
+		eState GetState() { return mState; }
 
 	private:
 		eState mState;
+		std::vector<GameObject*> mChildren;
 		std::vector<Component*> mComponents;
 		std::vector<Script*> mScripts;
 		LAYER mLayer;
@@ -107,5 +111,10 @@ namespace ya
 	static __forceinline void Destroy(GameObject* gameObject)
 	{
 		gameObject->death();
+
+		for (const auto& child : gameObject->mChildren)
+		{
+			Destroy(child);
+		}
 	}
 }
