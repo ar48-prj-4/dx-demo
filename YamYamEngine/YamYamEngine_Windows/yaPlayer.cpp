@@ -42,6 +42,7 @@ namespace ya
 
 		m_melee_hitbox_ = new MeleeHitBox(this);
 		m_melee_hitbox_->Initialize();
+		AddChildObject(m_melee_hitbox_);
 	}
 
 	void Player::Update()

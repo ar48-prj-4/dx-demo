@@ -41,7 +41,8 @@ namespace ya
 			const auto turret_pos = tr->GetPosition();
 			const auto offset = (player_pos - turret_pos).normalize();
 
-			Bullet::InstantiateBullet(tr, offset, 5.0f);
+			GetOwner()->AddChildObject(Bullet::InstantiateBullet(tr, offset, 5.0f));
+
 			mTime = 0.0f;
 		}
 
