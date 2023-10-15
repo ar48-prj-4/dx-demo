@@ -39,7 +39,7 @@ namespace ya
 
 
 		// GetFocus : 윈도우가 활성될 때만 할 수 있게 해주는 함수
-		if (Input::GetKey(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::B))
+		if (Input::GetKeyDown(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::B))
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 
@@ -68,7 +68,7 @@ namespace ya
 		}
 
 		// GetFocus : 윈도우가 활성될 때만 할 수 있게 해주는 함수
-		if (Input::GetKey(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::N))
+		if (Input::GetKeyDown(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::N))
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 
@@ -99,7 +99,7 @@ namespace ya
 		}
 
 		// GetFocus : 윈도우가 활성될 때만 할 수 있게 해주는 함수
-		if (Input::GetKey(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::M))
+		if (Input::GetKeyDown(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::M))
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 
@@ -129,7 +129,7 @@ namespace ya
 		}
 
 		// GetFocus : 윈도우가 활성될 때만 할 수 있게 해주는 함수
-		if (Input::GetKey(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::V))
+		if (Input::GetKeyDown(eKeyCode::LBTN) && GetFocus() && Input::GetKey(eKeyCode::V))
 		{
 			Vector3 mousePos = Input::GetCoordinationMousePosition();
 

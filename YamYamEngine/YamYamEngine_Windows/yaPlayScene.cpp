@@ -239,7 +239,7 @@ namespace ya
 	{
 		OPENFILENAME ofn = {};
 
-		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Test.tm";
+		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Boss.tm";
 
 		// rb : 이진수로 파일을 읽음
 		FILE* pFile = nullptr;

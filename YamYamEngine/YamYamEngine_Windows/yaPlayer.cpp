@@ -113,7 +113,6 @@ namespace ya
 
 		else if (layer == LAYER::TILE)
 		{
-
 		}
 
 		else if (layer == LAYER::ITEM)
