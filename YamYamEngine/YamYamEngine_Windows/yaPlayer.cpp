@@ -1,4 +1,6 @@
 #include "yaPlayer.h"
+
+#include "yaBullet.h"
 #include "yaInput.h"
 #include "yaTransform.h"
 #include "yaTime.h"
@@ -59,8 +61,12 @@ namespace ya
 			Idle();
 			break;
 
-		case ya::Player::eState::Attack:
-			Attack();
+		case ya::Player::eState::MeleeAttack:
+			MeleeAttack();
+			break;
+
+		case ya::Player::eState::RangeAttack:
+			RangeAttack();
 			break;
 
 		case ya::Player::eState::Shoot:
@@ -162,16 +168,21 @@ namespace ya
 		m_shadow_->Attack();
 	}
 
-	void Player::Attack()
+	void Player::MeleeAttack()
 	{
-		if (mPlayerAs == ePlayerAs::Shadow)
-		{
-			DispatchShadowAttack();
-		}
-		else
-		{
-			MeleeHitBox::ProcessMeleeAttack(this, m_melee_hitbox_->GetHitObjects());
-		}
+		DispatchShadowAttack();
+		MeleeHitBox::ProcessMeleeAttack(this, m_melee_hitbox_->GetHitObjects());
+
+		mState = eState::Idle;
+	}
+
+	void Player::RangeAttack()
+	{
+		DispatchShadowAttack();
+		const auto mouse_pos = Input::GetCoordinationMousePosition();
+
+
+		Bullet::InstantiateBullet(GetComponent<Transform>(), (mouse_pos - GetComponent<Transform>()->GetPosition()).normalize(), 1.5f);
 
 		mState = eState::Idle;
 	}

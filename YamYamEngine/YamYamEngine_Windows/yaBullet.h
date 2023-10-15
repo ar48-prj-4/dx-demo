@@ -1,6 +1,7 @@
 #pragma once
 #include "yaGameObject.h"
 #include "yaPlayerScript.h"
+#include "yaTransform.h"
 
 namespace ya
 {
@@ -19,16 +20,6 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other);
 		virtual void OnCollisionExit(class Collider* other);
 
-		Vector3 GetOrbit()
-		{
-			return mOrbit;
-		}
-
-	private:
-		Vector3 mBulletPos;
-		Vector3 mPlayerPos;
-		Vector3 mOrbit;
-
-		PlayerScript* playerSC;
+		static void InstantiateBullet(Transform* tr, Vector3 offset, float speed);
 	};
 }

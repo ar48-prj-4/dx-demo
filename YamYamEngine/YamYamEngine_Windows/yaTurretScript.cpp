@@ -7,6 +7,7 @@
 #include "yaResources.h"
 #include "yaGameObject.h"
 #include "yaSceneManager.h"
+#include "yaTurret.h"
 
 namespace ya
 {
@@ -33,20 +34,14 @@ namespace ya
 
 		if (mTime >= 0.5f)
 		{
-			Bullet* bullet = new Bullet();
-			bullet->Initialize();
+			const auto turret = dynamic_cast<Turret*>(obj);
+			const auto player = turret->GetPlayer();
 
-			Transform* bullettr = bullet->AddComponent<Transform>();
-			bullettr->SetPosition(tr->GetPosition());
-			bullettr->SetScale(Vector3(0.5f, 0.5f, 1.0f));
-			bullet->AddComponent<BulletScript>();
+			const auto player_pos = player->GetComponent<Transform>()->GetPosition();
+			const auto turret_pos = tr->GetPosition();
+			const auto offset = (player_pos - turret_pos).normalize();
 
-			MeshRenderer* bulletmr = bullet->AddComponent<MeshRenderer>();
-			bulletmr->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
-			bulletmr->SetShader(Resources::Find<Shader>(L"ColorShader"));
-
-			SceneManager::GetActiveScene()->AddGameObject(bullet, LAYER::TURRET);
-
+			Bullet::InstantiateBullet(tr, offset, 2.0f);
 			mTime = 0.0f;
 		}
 
