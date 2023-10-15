@@ -16,6 +16,10 @@
 #include "IJ_Button.h"
 #include "yaTile.h"
 
+//Boss Test
+#include "yaBoss.h"
+#include "yaBossScript.h"
+
 namespace ya
 {
 	PlayScene::PlayScene()
@@ -34,17 +38,17 @@ namespace ya
 
 		//Player
 		{
-			Player* player = new Player();
-			player->Initialize();
+			mPlayer = new Player();
+			mPlayer->Initialize();
 
-			MeshRenderer* meshRenderer = player->AddComponent<MeshRenderer>();
+			MeshRenderer* meshRenderer = mPlayer->AddComponent<MeshRenderer>();
 			meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
 			meshRenderer->SetShader(Resources::Find<Shader>(L"ColorShader"));
 
-			Transform* tr = player->GetComponent<Transform>();
-			auto cld1 = player->GetComponent<Collider>();
-			auto rb = player->GetComponent<Rigidbody>();
-			player->AddComponent<PlayerScript>();
+			Transform* tr = mPlayer->GetComponent<Transform>();
+			auto cld1 = mPlayer->GetComponent<Collider>();
+			auto rb = mPlayer->GetComponent<Rigidbody>();
+			mPlayer->AddComponent<PlayerScript>();
 
 			tr->SetPosition(Vector3(-2.5f, 0.2f, 1.0f));
 			tr->SetScale(Vector3(1.0f, 1.0f, 1.0f));
@@ -54,12 +58,12 @@ namespace ya
 			// ** 테스트용으로 플레이어의 중력을 없애놨음. 나중에 풀어야 함!! **
 			rb->SetGravity(Vector3::Zero);
 
-			rb->SetFriction(0.25f);
+			rb->SetFriction(0.7f);
 
-			AddGameObject(player, LAYER::PLAYER);
-			AddGameObject(player->GetPlayerShadow(), LAYER::PLAYER);
-			AddGameObject(player->GetMeleeHitBox(), LAYER::ATTACK);
-			AddGameObject(player->GetPlayerShadow()->GetMeleeHitBox(), LAYER::ATTACK);
+			AddGameObject(mPlayer, LAYER::PLAYER);
+			AddGameObject(mPlayer->GetPlayerShadow(), LAYER::PLAYER);
+			AddGameObject(mPlayer->GetMeleeHitBox(), LAYER::ATTACK);
+			AddGameObject(mPlayer->GetPlayerShadow()->GetMeleeHitBox(), LAYER::ATTACK);
 		}
 
 		GameObject* wall_a = new GameObject();
@@ -138,6 +142,35 @@ namespace ya
 			turret->AddComponent<TurretScript>();
 			AddGameObject(turret, LAYER::TURRET);
 			turret->AddComponent<Collider>()->SetSize(Vector3(0.1f, 0.1f, 1.0f));
+			turret->SetPlayer(mPlayer);
+		}
+
+		//Test Boss
+		{
+			Boss* boss = new Boss();
+			boss->Initialize();
+
+			MeshRenderer* meshRenderer = boss->AddComponent<MeshRenderer>();
+			meshRenderer->SetMesh(Resources::Find<Mesh>(L"TriangleMesh"));
+			meshRenderer->SetShader(Resources::Find<Shader>(L"ColorShader"));
+
+			Transform* tr = boss->GetComponent<Transform>();
+			auto bosscol = boss->GetComponent<Collider>();
+			auto bossrb = boss->GetComponent<Rigidbody>();
+			boss->AddComponent<BossScript>();
+
+			tr->SetPosition(Vector3(2.5f, 0.2f, 1.0f));
+			tr->SetScale(Vector3(2.0f, 2.0f, 1.0f));
+
+			bosscol->SetSize(Vector3(1.0f, 1.0f, 1.0f));
+
+			// ** 테스트용으로 플레이어의 중력을 없애놨음. 나중에 풀어야 함!! **
+			bossrb->SetGravity(Vector3::Zero);
+
+			bossrb->SetFriction(0.25f);
+
+			AddGameObject(boss, LAYER::BOSS);
+			AddGameObject(boss->GetBossShadow(), LAYER::BOSS);
 		}
 
 		// Light
@@ -178,8 +211,9 @@ namespace ya
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::PORTAL, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::LIGHT, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ITEM, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::TILE, true);
 
-		Camera::SetZoom(10.f);
+		Camera::SetZoom(20.f);
 	}
 
 	void PlayScene::Update()
@@ -206,7 +240,7 @@ namespace ya
 	{
 		OPENFILENAME ofn = {};
 
-		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Stage_R.tm";
+		wchar_t szFilePath[256] = L"..\\Resources\\Map\\Stage.tm";
 
 		// rb : 이진수로 파일을 읽음
 		FILE* pFile = nullptr;

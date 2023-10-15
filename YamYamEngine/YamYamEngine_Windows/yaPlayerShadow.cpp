@@ -1,5 +1,6 @@
 #include "yaPlayerShadow.h"
 
+#include "yaBullet.h"
 #include "yaCollider.h"
 #include "yaInput.h"
 #include "yaLight.h"
@@ -77,6 +78,14 @@ namespace ya
 		// 플레이어가 광원 아래에 있을 경우
 		if(GetComponent<MeshRenderer>()->IsEnabled())
 		{
+			// TODO: 우회방식. 플레이어가 광원 위에 있는 상태에서 광원이 꺼질경우 그림자가 사라지도록 함.
+			if(const auto light = GetClosestLight(); light != nullptr && light->GetLayer() == LAYER::NONE)
+			{
+				GetComponent<MeshRenderer>()->SetEnabled(false);
+				m_meeting_lights_.erase(light);
+				return;
+			}
+
 			const auto tr = GetComponent<Transform>();
 			const auto player_pos = m_player_->GetComponent<Transform>()->GetPosition();
 			const auto player_scale = m_player_->GetComponent<Transform>()->GetScale();
@@ -138,7 +147,10 @@ namespace ya
 
 	void PlayerShadow::Attack()
 	{
-		MeleeHitBox::ProcessMeleeAttack(m_player_, m_melee_hitbox_->GetHitObjects());
+		if(m_player_->GetState() == Player::eState::MeleeAttack)
+		{
+			MeleeHitBox::ProcessMeleeAttack(m_player_, m_melee_hitbox_->GetHitObjects());
+		}
 	}
 
 	void PlayerShadow::PlayerCollisionLightEnter(Lighting* light)

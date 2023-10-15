@@ -151,6 +151,10 @@
     <ClInclude Include="IJ_Item_Heal.h" />
     <ClInclude Include="IJ_Item_Pocket_Light.h" />
     <ClInclude Include="IJ_PlayerAim_Temp.h" />
+    <ClInclude Include="yaBoss.h" />
+    <ClInclude Include="yaBossScript.h" />
+    <ClInclude Include="yaBossShadow.h" />
+    <ClInclude Include="yaBossStage.h" />
     <ClInclude Include="yaBullet.h" />
     <ClInclude Include="yaLight.h" />
     <ClInclude Include="yaLighting.h" />
@@ -178,6 +182,10 @@
     <ClCompile Include="IJ_Item_Heal.cpp" />
     <ClCompile Include="IJ_Item_Pocket_Light.cpp" />
     <ClCompile Include="IJ_PlayerAim_Temp.cpp" />
+    <ClCompile Include="yaBoss.cpp" />
+    <ClCompile Include="yaBossScript.cpp" />
+    <ClCompile Include="yaBossShadow.cpp" />
+    <ClCompile Include="yaBossStage.cpp" />
     <ClCompile Include="yaBullet.cpp" />
     <ClCompile Include="yaLight.cpp" />
     <ClCompile Include="yaLighting.cpp" />

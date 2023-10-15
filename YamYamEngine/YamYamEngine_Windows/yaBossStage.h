@@ -1,5 +1,4 @@
 #pragma once
-#include "yaPlayer.h"
 #include "yaScene.h"
 #include "yaTile.h"
 
@@ -11,11 +10,11 @@ namespace ya
 #define RIGHT_BOTTOM_Y 900.f
 #define RIGHT_BOTTOM_X 1600.f
 
-	class PlayScene : public Scene
+	class BossStage : public Scene
 	{
 	public:
-		PlayScene();
-		virtual ~PlayScene();
+		BossStage();
+		virtual ~BossStage();
 
 		void Initialize() override;
 		void Update() override;
@@ -26,6 +25,5 @@ namespace ya
 
 	private:
 		std::vector<Tile*> mTiles;
-		Player* mPlayer;
 	};
 }
