@@ -58,7 +58,7 @@ namespace ya
 			return nullptr;
 		}
 
-		// Component »èÁ¦ÇØÁÖ´Â ÇÔ¼ö
+		// Component ì‚­ì œí•´ì£¼ëŠ” í•¨ìˆ˜
 		template <typename T>
 		void DeleteComponent()
 		{
@@ -94,7 +94,6 @@ namespace ya
 		void SetLayer(LAYER LayerType) { mLayer = LayerType; }
 		LAYER GetLayer() { return mLayer; }
 
-
 	private:
 		eState mState;
 		std::vector<Component*> mComponents;
@@ -104,7 +103,7 @@ namespace ya
 		
 	};
 
-	// Á×Àº °ÔÀÓ ¿ÀºêÁ§Æ®ÀÇ ¸Þ¸ð¸®·ê Á¦°ÅÇØÁÖ´Â ÇÔ¼ö
+	// ì£½ì€ ê²Œìž„ ì˜¤ë¸Œì íŠ¸ì˜ ë©”ëª¨ë¦¬ë£° ì œê±°í•´ì£¼ëŠ” í•¨ìˆ˜
 	static __forceinline void Destroy(GameObject* gameObject)
 	{
 		gameObject->death();

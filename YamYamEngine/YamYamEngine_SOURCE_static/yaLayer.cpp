@@ -1,6 +1,7 @@
 #include "yaLayer.h"
 
 #include "yaSceneManager.h"
+#include "yaCollisionManager.h"
 
 
 namespace ya

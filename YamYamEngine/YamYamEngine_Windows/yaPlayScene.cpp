@@ -212,6 +212,9 @@ namespace ya
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::LIGHT, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ITEM, true);
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::TILE, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::BOSS, true);
+		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ATTACK, true);
+		CollisionManager::CollisionLayerCheck(LAYER::TILE, LAYER::ATTACK, true);
 
 		Camera::SetZoom(20.f);
 	}
