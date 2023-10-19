@@ -39,6 +39,8 @@ namespace ya
 		virtual void OnCollisionStay(class Collider* other);
 		virtual void OnCollisionExit(class Collider* other);
 
+		void ExitCollider();
+
 		void Idle();
 		void Live();
 		void Shoot();
@@ -54,7 +56,11 @@ namespace ya
 
 		MeleeHitBox* GetMeleeHitBox() const { return m_melee_hitbox_; }
 		PlayerShadow* GetPlayerShadow() const { return m_shadow_; }
-		
+
+		bool GetLeftTileCollision(){return LeftTileCollision;}
+		bool GetRightTileCollision() { return RightTileCollision; }
+		bool GetDownTileCollision() { return DownTileCollision; }
+		bool GetUpTileCollision() { return UpTileCollision; }
 
 		int GetHP() { return HP; }
 		void SetHP(int hp) { HP = hp; }
@@ -77,5 +83,11 @@ namespace ya
 		int m_light_power;
 		PlayerShadow* m_shadow_;
 		MeleeHitBox* m_melee_hitbox_;
+
+		bool LeftTileCollision;
+		bool RightTileCollision;
+		bool DownTileCollision;
+		bool UpTileCollision;
+
 	};
 }

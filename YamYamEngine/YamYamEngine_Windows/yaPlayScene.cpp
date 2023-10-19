@@ -215,7 +215,7 @@ namespace ya
 		CollisionManager::CollisionLayerCheck(LAYER::PLAYER, LAYER::ATTACK, true);
 		CollisionManager::CollisionLayerCheck(LAYER::TILE, LAYER::ATTACK, true);
 
-		Camera::SetZoom(20.f);
+		Camera::SetZoom(30.f);
 	}
 
 	void PlayScene::Update()

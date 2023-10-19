@@ -19,7 +19,11 @@ namespace ya
 		: HP(100),
 		//jumptime(0.f),
 		rb{ nullptr },
-		mState(eState::Idle)
+		mState(eState::Idle),
+		LeftTileCollision(false),
+		RightTileCollision(false),
+		DownTileCollision(false),
+		UpTileCollision(false)
 	{
 	}
 
@@ -121,6 +125,45 @@ namespace ya
 
 		else if (layer == LAYER::TILE)
 		{
+
+			Vector3 playerpos = this->GetComponent<Collider>()->GetPosition();
+			Vector3 playersize = this->GetComponent<Collider>()->GetSize();
+
+			Vector3 tilepos = other->GetPosition();
+			Vector3 tilesize = other->GetSize();
+
+			float ColSum_X = (playersize.x + tilesize.x) - fabs(playerpos.x - tilepos.x);
+			float ColSum_Y = (playersize.y + tilesize.y) - fabs(playerpos.y - tilepos.y);
+
+			// 좌우
+			if (ColSum_X < ColSum_Y)
+			{
+				// 왼쪽 충돌
+				if ((playerpos.x > tilepos.x))
+				{
+					LeftTileCollision = true;
+				}
+				// 오른쪽 충돌
+				if(playerpos.x <= tilepos.x)
+				{
+					RightTileCollision = true;
+				}
+			}
+			// 상하
+			else
+			{
+				// 위쪽 충돌
+				if (playerpos.y < tilepos.y)
+				{
+					UpTileCollision = true;
+				}
+				// 아래쪽 충돌
+				if (playerpos.y >= tilepos.y)
+				{
+					DownTileCollision = true;
+				}
+			}
+
 		}
 
 		else if (layer == LAYER::ITEM)
@@ -151,7 +194,33 @@ namespace ya
 		{
 			m_shadow_->PlayerCollisionLightExit(dynamic_cast<Lighting*>(other->GetOwner()));
 		}
+
+		if (layer == LAYER::TILE)
+		{
+			ExitCollider();
+		}
 	}
+
+	void Player::ExitCollider()
+	{
+		if (LeftTileCollision == true)
+		{
+			LeftTileCollision = false;
+		}
+		if (RightTileCollision == true)
+		{
+			RightTileCollision = false;
+		}
+		if (DownTileCollision == true)
+		{
+			DownTileCollision = false;
+		}
+		if (UpTileCollision == true)
+		{
+			UpTileCollision = false;
+		}
+	}
+
 	void Player::Idle()
 	{
 	}
@@ -192,7 +261,7 @@ namespace ya
 	{
 		if(HP != 0)
 		{
-			HP -= 20;
+			HP -= 10;
 		}
 		else
 		{

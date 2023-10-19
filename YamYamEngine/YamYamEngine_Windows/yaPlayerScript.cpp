@@ -29,23 +29,25 @@ namespace ya
 		Transform* tr = obj->GetComponent<Transform>();
 		Rigidbody* rb = obj->GetComponent<Rigidbody>();
 
+		Player* player = dynamic_cast<Player*>(obj);
+
 		//Player �̵�
-		if (Input::GetKey(eKeyCode::W))
+		if (Input::GetKey(eKeyCode::W) && player->GetUpTileCollision() == false)
 		{
 			const auto velocity = rb->GetVelocity();
 			rb->SetVelocity({velocity.x, 1.0f, velocity.z});
 		}
-		if (Input::GetKey(eKeyCode::A))
+		if (Input::GetKey(eKeyCode::A) && player->GetLeftTileCollision() == false)
 		{
 			const auto velocity = rb->GetVelocity();
 			rb->SetVelocity({-1.0f, velocity.y, velocity.z});
 		}
-		if (Input::GetKey(eKeyCode::S))
+		if (Input::GetKey(eKeyCode::S) && player->GetDownTileCollision() == false)
 		{
 			const auto velocity = rb->GetVelocity();
 			rb->SetVelocity({velocity.x, -1.0f, velocity.z});
 		}
-		if (Input::GetKey(eKeyCode::D))
+		if (Input::GetKey(eKeyCode::D) && player->GetRightTileCollision() == false)
 		{
 			const auto velocity = rb->GetVelocity();
 			rb->SetVelocity({1.0f, velocity.y, velocity.z});
