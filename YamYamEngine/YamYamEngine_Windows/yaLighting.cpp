@@ -28,6 +28,10 @@ namespace ya
 
 	void Lighting::Update()
 	{
+		// 시간제한 조명이 사라지면 빛도 사라지도록 의도함 (문제가 있다면 알려주세요)
+		if (m_origin_ == nullptr)
+			Destroy(this);
+
 		if (m_origin_->GetBCOState() == ButtonConnectedObject::eBCOState::Activated)
 		{
 			ButtonConnectedObject::Update();

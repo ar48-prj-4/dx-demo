@@ -12,7 +12,7 @@ namespace ya
 		~Light() override = default;
 
 		void Initialize() override;
-		void Update() override;
+		virtual void Update() override;
 		void LateUpdate() override;
 		void Render() override;
 
